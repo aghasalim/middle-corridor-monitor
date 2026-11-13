@@ -1,0 +1,2 @@
+entity,metric,pw_measure,months,first,last,level_pearson,level_spearman,yoy_n,yoy_pearson,yoy_spearman,oos_months,rmse_portwatch,rmse_last_year,rmse_previous
+Kazakhstan sea transport,tonnes_carried,all_tonnes,54,2019-02,2026-10,0.06292431767241005,0.16058700209643606,34,-0.22956068533192064,-0.17280366692131396,30,144078.34608987928,104093.80058389645,54863.46103434112

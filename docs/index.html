@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Middle Corridor Monitor</title>
+<style>
+:root{--fg:#1a1a1a;--muted:#555;--bg:#fff;--line:#ddd;--warn:#fff4d6;--warnline:#c99a00}
+@media (prefers-color-scheme:dark){:root{--fg:#eee;--muted:#aaa;--bg:#141414;--line:#333;--warn:#3a3000;--warnline:#c99a00}
+img{background:#fff}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}
+.banner{background:var(--warn);border-left:4px solid var(--warnline);padding:8px 12px;font-weight:600}
+h1{font-size:1.6rem;margin:.8em 0 .2em}h2{font-size:1.2rem;margin-top:1.8em}
+.muted{color:var(--muted);font-size:.9rem}
+img{max-width:100%;height:auto;border:1px solid var(--line)}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:4px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+</style></head>
+<body><main>
+<p class="banner" role="note">Preliminary. Not peer reviewed.</p>
+<h1>Middle Corridor Monitor</h1>
+<p class="muted">Aghasalim Mustafazada; Teymur Eyvazov (co-author to be confirmed before publication)</p>
+<p>A monthly count of non-tanker ship calls at Baku, Aktau and Turkmenbashi, built from IMF PortWatch data, as an open
+and checkable indicator of cargo crossing the Caspian leg of the Middle Corridor. Every number on this page is produced
+by the code in this repository from a dated data snapshot.</p>
+<p class="muted">Last data day: 2026-11-06. Last complete month: October 2026. Data downloaded 2026-11-13T00:10:08Z.</p>
+
+<h2>Headline index</h2>
+<img src="index_headline.png" alt="Line chart of the Caspian non-tanker port-call index and the Ro-Ro call index, 2019 monthly mean = 100, from January 2019 to October 2026.">
+
+<h2>Latest 12 months</h2>
+<div class="tw"><table>
+<caption class="muted">Calls per month summed over Baku, Aktau and Turkmenbashi; index 2019 monthly mean = 100.</caption>
+<thead><tr><th scope="col">Month</th><th scope="col">Non-tanker calls</th><th scope="col">Index</th>
+<th scope="col">Ro-Ro calls</th><th scope="col">Black Sea index</th></tr></thead>
+<tbody><tr><td>2025-11</td><td>203</td><td>168.9</td><td>54</td><td>117.6</td></tr><tr><td>2025-12</td><td>172</td><td>143.1</td><td>37</td><td>107.0</td></tr><tr><td>2026-01</td><td>167</td><td>139.0</td><td>31</td><td>103.7</td></tr><tr><td>2026-02</td><td>181</td><td>150.6</td><td>38</td><td>83.4</td></tr><tr><td>2026-03</td><td>244</td><td>203.1</td><td>79</td><td>94.1</td></tr><tr><td>2026-04</td><td>219</td><td>182.2</td><td>68</td><td>97.3</td></tr><tr><td>2026-05</td><td>303</td><td>252.1</td><td>92</td><td>101.6</td></tr><tr><td>2026-06</td><td>309</td><td>257.1</td><td>93</td><td>92.0</td></tr><tr><td>2026-07</td><td>256</td><td>213.0</td><td>78</td><td>99.5</td></tr><tr><td>2026-08</td><td>254</td><td>211.4</td><td>77</td><td>92.0</td></tr><tr><td>2026-09</td><td>280</td><td>233.0</td><td>85</td><td>99.5</td></tr><tr><td>2026-10</td><td>262</td><td>218.0</td><td>84</td><td>92.0</td></tr></tbody></table></div>
+
+<h2>Comparator</h2>
+<img src="index_comparator.png" alt="Line chart comparing the Caspian non-tanker index with the Poti plus Batumi non-tanker index and Caspian tanker calls, 2019 = 100.">
+<p>Poti and Batumi (Black Sea, Georgia) are shown for comparison only; they are not part of the Caspian index.
+Tanker calls are reported separately and are not in the headline.</p>
+
+<h2>Checks against official figures</h2>
+<ul>
+<li>The index does not track the official Trans-Caspian route total. Over 7 years both rise
+(correlation of levels 0.60), but year-on-year changes are unrelated
+(correlation -0.05, 6 pairs).</li>
+<li>It does not forecast Kazakhstan's monthly "cargo carried by sea transport" series. Over 30
+out-of-sample months the error (RMSE, tonnes) was 144,078 with PortWatch, 104,094
+using the same month a year earlier and 54,863 using the previous month.</li>
+<li>Where the definitions match, PortWatch is close: its ship calls at Aktau average 0.97 of the
+calls reported by the Kazakh maritime administration over 7 years.</li>
+</ul>
+<p class="muted">Samples are short and these checks are preliminary. Full tables: outputs/tables/validate_*.csv.</p>
+
+<h2>What this does not measure</h2>
+<ul>
+<li>Kuryk, Kazakhstan's ferry port, is not in PortWatch, so it is missing from the index.</li>
+<li>The area PortWatch calls "Baku Port" is not published; whether it includes Alat is unknown.</li>
+<li>Ferry cargo is poorly captured: rail ferries may not be classed as Ro-Ro, and PortWatch dry-cargo tonnage at Baku
+is several times below official figures. Calls are counted, not tonnes or containers.</li>
+<li>Ro-Ro calls step up four- to sixfold between 2021 and 2022 at all three ports at once. The cause is not
+explained (single-break estimate of the first month of the higher level: Baku 2021-12; Aktau 2022-01; Turkmenbashi 2021-11).</li>
+<li>No hand-validated radar (Sentinel-1) ship counts exist yet.</li>
+</ul>
+<img src="index_roro_step.png" alt="Three panels of monthly Ro-Ro, general cargo and tanker calls at Baku, Aktau and Turkmenbashi, 2021 to 2023.">
+
+<h2>Data</h2>
+<p>Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org).</p>
+<p class="muted">Daily port calls by ship type from the PortWatch Daily_Ports_Data service, ports Baku (port100),
+Aktau (port16), Turkmenbashi (port1330), Poti (port1016), Batumi (port127). Licence to be decided before publication.</p>
+</main></body></html>

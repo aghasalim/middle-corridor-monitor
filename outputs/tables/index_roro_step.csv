@@ -1,0 +1,10 @@
+port,series,break_month,mean_before,mean_after,ratio
+Baku,roro_calls,2021-12,8.0,41.8,5.22
+Baku,general_cargo_calls,2022-09,60.2,45.4,0.75
+Baku,tanker_calls,2022-02,49.1,79.4,1.62
+Aktau,roro_calls,2022-01,2.3,13.8,5.89
+Aktau,general_cargo_calls,2021-07,63.8,37.4,0.59
+Aktau,tanker_calls,2022-11,22.9,41.2,1.8
+Turkmenbashi,roro_calls,2021-11,5.5,25.0,4.55
+Turkmenbashi,general_cargo_calls,2022-10,41.6,19.1,0.46
+Turkmenbashi,tanker_calls,2023-04,18.3,23.4,1.28
