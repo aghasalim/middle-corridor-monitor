@@ -1,0 +1,43 @@
+# Extract: AMTP annual report 2023 (EN), p.37. Source: https://portaktau.kz/wp-content/uploads/2025/04/godovoj-otchet-ao-nk-amtp-za-2023-god-na-angl.pdf
+ 
+Production figures for 2023 
+Name Unit of meas. 2023 2022 2021 
+Total transshipment ths. tons 4,483 3,818 3,501 
+Oil ths. tons 3,614 2,462 2,191 
+Grain ths. tons 177 177,447,635 635 
+Other cargo, including: ths. tons 693 693,909,675 675 
+containers, including: TEU 22,780 30,708 27,624 
+MIDDLE CORRIDOR route TEU 16,387 27,094 17,741 
+China- Kazakhstan - 
+Turkmenistan - Iran route  TEU   132 
+other TEU 6 393 3 614 9 751 
+Revenues ths. KZT 11 194 385 9 670 762 7 601 460 
+Revenues from cargo handling, 
+including : ths. KZT 6 497 431 5 971 784 4 585 805 
+Oil ths. KZT 3 859 775 2 629 453 2 148 710 
+Grain ths. KZT 290 122 789 233 1,019,498 
+other cargo ths. KZT 2,347,534 2,553,098 1,417,597 
+Revenue from ship calling services ths. KZT 2,906 116 2,103 496 2,033,887 
+Revenue from port fleet services ths. KZT 991 678 870 320 603 204 
+Revenue from cargo storage ths. KZT 331 933 311 411 219 579 
+Other income ths. KZT 467 227 413 751 158 985 
+ 
+Total cargo transshipment in 2023 amounted to 4 483 ths. tons, or 117% compared to 2022 (3,818 
+ths. tons), including: 
+-  oil transshipment amounted to 3 614 ths. tons, or 147% compared to the same period last year 
+(2 462 ths. tons); 
+-  grain transshipment – 177 ths. tons, or 40% by 2022 (447 ths. tons);  
+-  transshipment of other and general cargo totaled 693 ths. tons, or 76% of the same period in 
+2022 (909 ths. tons), including: 
+-  container transshipment in all directions amounted to 22  780 TEU , or 74% compared to last 
+year (30 708 TEU), including: 
+on the MIDDLE CORRIDOR  route – 16 387 TEU or 60% of the same period  last year  
+(27 094 TEU). 
+transshipment of other containers – 6 393 TEU or 177% compared to the previous year (3  614 
+TEU). 
+Operating income (revenue) in 2023 amounted to 11 194 385 ths. KZT, or 116% of the previous 
+## p.31 ten-year chart data (ths. tonnes; leading 0 is the axis)
+Turkmenistan - 17%
+Год 2014 год 2015 год 2016 год 2017 год 2018 год 2019 год 2020 год 2021 год 2022 год 2023 год 
+Общая перевалка грузов 0 10 268 5 898 5 465 3 033 3 554 3 514 3 111 3 501 3 818 4 483
+в том числе нефть 0 5 954 3 521 2 278 1 437 2 089 2 136 2 213 2 190 2 462 3 614

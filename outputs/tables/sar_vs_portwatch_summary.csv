@@ -1,0 +1,13 @@
+sar,portwatch,n_months,pearson,spearman
+mean_basin,portcalls,94,0.301,0.29
+mean_basin,portcalls_dry,94,0.291,0.3
+mean_basin,portcalls_tanker,94,0.249,0.241
+mean_basin,portcalls_roro,94,0.333,0.306
+mean_roadstead,portcalls,94,0.37,0.312
+mean_roadstead,portcalls_dry,94,0.488,0.441
+mean_roadstead,portcalls_tanker,94,0.102,0.059
+mean_roadstead,portcalls_roro,94,0.173,0.135
+mean_total,portcalls,94,0.414,0.379
+mean_total,portcalls_dry,94,0.528,0.51
+mean_total,portcalls_tanker,94,0.143,0.109
+mean_total,portcalls_roro,94,0.228,0.215

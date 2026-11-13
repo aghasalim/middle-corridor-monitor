@@ -1,0 +1,175 @@
+{
+ "type": "FeatureCollection",
+ "name": "alat_sar_zones",
+ "crs_note": "WGS84 lon/lat",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "zone": "basin",
+    "description": "Dredged harbour basin of the Port of Baku at Alat: the dock with the general-cargo/container quay, the ferry and Ro-Ro berths, and the turning area, ~30 m onto the quays"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       49.439684,
+       39.964475
+      ],
+      [
+       49.439654,
+       39.970962
+      ],
+      [
+       49.44021,
+       39.972231
+      ],
+      [
+       49.44089,
+       39.973231
+      ],
+      [
+       49.444519,
+       39.973279
+      ],
+      [
+       49.444425,
+       39.977422
+      ],
+      [
+       49.448406,
+       39.977476
+      ],
+      [
+       49.44854,
+       39.971532
+      ],
+      [
+       49.451935,
+       39.971577
+      ],
+      [
+       49.451953,
+       39.970766
+      ],
+      [
+       49.449166,
+       39.969738
+      ],
+      [
+       49.446167,
+       39.967716
+      ],
+      [
+       49.443313,
+       39.964524
+      ],
+      [
+       49.439684,
+       39.964475
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "zone": "roadstead",
+    "description": "Approach channel from the basin to the bay mouth, and the open water south and east of the Alat spit where ships wait (drawn generously; no chart or AIS was used)"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       49.439684,
+       39.964475
+      ],
+      [
+       49.443313,
+       39.964524
+      ],
+      [
+       49.442495,
+       39.959288
+      ],
+      [
+       49.440628,
+       39.953857
+      ],
+      [
+       49.438665,
+       39.947524
+      ],
+      [
+       49.437969,
+       39.942109
+      ],
+      [
+       49.436378,
+       39.93488
+      ],
+      [
+       49.455127,
+       39.93378
+      ],
+      [
+       49.480767,
+       39.938624
+      ],
+      [
+       49.496961,
+       39.947394
+      ],
+      [
+       49.496566,
+       39.965408
+      ],
+      [
+       49.553923,
+       39.966137
+      ],
+      [
+       49.555911,
+       39.871563
+      ],
+      [
+       49.441358,
+       39.87008
+      ],
+      [
+       49.430325,
+       39.892455
+      ],
+      [
+       49.426302,
+       39.914924
+      ],
+      [
+       49.424134,
+       39.932913
+      ],
+      [
+       49.427982,
+       39.943776
+      ],
+      [
+       49.433647,
+       39.951961
+      ],
+      [
+       49.437579,
+       39.959222
+      ],
+      [
+       49.439684,
+       39.964475
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

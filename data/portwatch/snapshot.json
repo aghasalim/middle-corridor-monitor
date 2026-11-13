@@ -1,0 +1,37 @@
+{
+  "downloaded_utc": "2026-11-13T00:10:08Z",
+  "source": "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Ports_Data/FeatureServer/0/query",
+  "citation": "Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org).",
+  "ports": {
+    "port100": {
+      "name": "Baku",
+      "rows": 2867,
+      "first": "2019-01-01",
+      "last": "2026-11-06"
+    },
+    "port16": {
+      "name": "Aktau",
+      "rows": 2867,
+      "first": "2019-01-01",
+      "last": "2026-11-06"
+    },
+    "port1330": {
+      "name": "Turkmenbashi",
+      "rows": 2867,
+      "first": "2019-01-01",
+      "last": "2026-11-06"
+    },
+    "port1016": {
+      "name": "Poti",
+      "rows": 2867,
+      "first": "2019-01-01",
+      "last": "2026-11-06"
+    },
+    "port127": {
+      "name": "Batumi",
+      "rows": 2867,
+      "first": "2019-01-01",
+      "last": "2026-11-06"
+    }
+  }
+}
