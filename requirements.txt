@@ -1,0 +1,13 @@
+numpy
+pandas
+matplotlib
+requests
+pytest
+scipy
+rasterio
+pyproj
+shapely
+pystac-client
+planetary-computer
+scikit-image
+pillow

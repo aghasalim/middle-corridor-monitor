@@ -1,0 +1,213 @@
+{
+ "Baku/Alat": {
+  "2019": {
+   "products": 85,
+   "passes": 85,
+   "days": 85,
+   "S1A": 85
+  },
+  "2020": {
+   "products": 89,
+   "passes": 89,
+   "days": 89,
+   "S1A": 89
+  },
+  "2021": {
+   "products": 93,
+   "passes": 90,
+   "days": 90,
+   "S1A": 90
+  },
+  "2022": {
+   "products": 86,
+   "passes": 86,
+   "days": 86,
+   "S1A": 86
+  },
+  "2023": {
+   "products": 91,
+   "passes": 91,
+   "days": 91,
+   "S1A": 91
+  },
+  "2024": {
+   "products": 90,
+   "passes": 90,
+   "days": 90,
+   "S1A": 90
+  },
+  "2025": {
+   "products": 93,
+   "passes": 93,
+   "days": 92,
+   "S1A": 91,
+   "S1C": 2
+  },
+  "2026": {
+   "products": 79,
+   "passes": 79,
+   "days": 78,
+   "S1D": 34,
+   "S1A": 44,
+   "S1C": 1
+  }
+ },
+ "Aktau": {
+  "2019": {
+   "products": 54,
+   "passes": 54,
+   "days": 54,
+   "S1A": 54
+  },
+  "2020": {
+   "products": 60,
+   "passes": 60,
+   "days": 60,
+   "S1A": 60
+  },
+  "2021": {
+   "products": 62,
+   "passes": 59,
+   "days": 59,
+   "S1A": 59
+  },
+  "2022": {
+   "products": 54,
+   "passes": 54,
+   "days": 54,
+   "S1A": 54
+  },
+  "2023": {
+   "products": 59,
+   "passes": 59,
+   "days": 59,
+   "S1A": 59
+  },
+  "2024": {
+   "products": 61,
+   "passes": 61,
+   "days": 61,
+   "S1A": 61
+  },
+  "2025": {
+   "products": 63,
+   "passes": 63,
+   "days": 63,
+   "S1A": 61,
+   "S1C": 2
+  },
+  "2026": {
+   "products": 53,
+   "passes": 53,
+   "days": 53,
+   "S1A": 29,
+   "S1D": 23,
+   "S1C": 1
+  }
+ },
+ "Kuryk": {
+  "2019": {
+   "products": 82,
+   "passes": 82,
+   "days": 82,
+   "S1A": 82
+  },
+  "2020": {
+   "products": 90,
+   "passes": 90,
+   "days": 90,
+   "S1A": 90
+  },
+  "2021": {
+   "products": 92,
+   "passes": 88,
+   "days": 88,
+   "S1A": 88
+  },
+  "2022": {
+   "products": 85,
+   "passes": 83,
+   "days": 83,
+   "S1A": 83
+  },
+  "2023": {
+   "products": 88,
+   "passes": 88,
+   "days": 88,
+   "S1A": 88
+  },
+  "2024": {
+   "products": 90,
+   "passes": 90,
+   "days": 90,
+   "S1A": 90
+  },
+  "2025": {
+   "products": 93,
+   "passes": 93,
+   "days": 91,
+   "S1A": 90,
+   "S1C": 3
+  },
+  "2026": {
+   "products": 78,
+   "passes": 78,
+   "days": 78,
+   "S1A": 42,
+   "S1D": 35,
+   "S1C": 1
+  }
+ },
+ "Turkmenbashi": {
+  "2019": {
+   "products": 117,
+   "passes": 115,
+   "days": 115,
+   "S1A": 115
+  },
+  "2020": {
+   "products": 119,
+   "passes": 118,
+   "days": 118,
+   "S1A": 118
+  },
+  "2021": {
+   "products": 122,
+   "passes": 120,
+   "days": 120,
+   "S1A": 120
+  },
+  "2022": {
+   "products": 115,
+   "passes": 113,
+   "days": 113,
+   "S1A": 113
+  },
+  "2023": {
+   "products": 119,
+   "passes": 119,
+   "days": 119,
+   "S1A": 119
+  },
+  "2024": {
+   "products": 119,
+   "passes": 119,
+   "days": 119,
+   "S1A": 119
+  },
+  "2025": {
+   "products": 122,
+   "passes": 122,
+   "days": 120,
+   "S1A": 120,
+   "S1C": 2
+  },
+  "2026": {
+   "products": 106,
+   "passes": 106,
+   "days": 105,
+   "S1A": 58,
+   "S1D": 48
+  }
+ }
+}
