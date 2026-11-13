@@ -31,6 +31,8 @@ python -m venv .venv
 .venv/Scripts/python -m mcm.build            # downloads PortWatch, then builds everything
 .venv/Scripts/python -m mcm.build --offline  # reuses data/portwatch/
 .venv/Scripts/python -m pytest -q
+.venv/Scripts/python research/paper_checks.py   # extra numbers quoted in the paper
+.venv/Scripts/python paper/build_pdf.py          # paper.md -> paper.pdf (needs Chrome)
 ```
 
 (On macOS/Linux use `.venv/bin/python`.) The build fails loudly if a port's download is short,
@@ -47,7 +49,7 @@ has a duplicated day or a missing day.
 | `src/mcm/page.py` | writes `docs/index.html` |
 | `src/mcm/sar/` | Sentinel-1 detection at Alat: `fetch`, `run`, `report` (see `research/SAR_METHOD.md`) |
 | `research/` | research notes, literature, references, one-off check scripts |
-| `paper/` | draft paper |
+| `paper/` | draft paper (`paper.md`, `paper.pdf`) and `NUMBERS.md`, the source of every number in it |
 | `data/portwatch/` | daily CSV per port + snapshot.json |
 | `data/official/` | official figures |
 | `outputs/tables/` | `index_*.csv`, `validate_*.csv`, `sar_*.csv` |
