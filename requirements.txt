@@ -11,3 +11,5 @@ pystac-client
 planetary-computer
 scikit-image
 pillow
+markdown
+pypdf

@@ -1,0 +1,46 @@
+check,key,value
+ferry_cargo_over_kuryk,2019,1.0018
+ferry_cargo_over_kuryk,2020,2.3458
+ferry_cargo_over_kuryk,2021,1.0041
+ferry_cargo_over_kuryk,2022,1.0024
+ferry_cargo_over_kuryk,2023,1.0043
+ferry_cargo_over_kuryk,2024,1.001
+ferry_cargo_over_kuryk,2025,1.0006
+ferry_cargo_over_amct,2020,1.0026
+kuryk_share_2020_as_published,2020,0.1249
+kuryk_share_2020_if_transposed,2020,0.2922
+kuryk_share_min_if_transposed,2021,0.1786
+aktau_amct_tonnes_if_transposed,mean_ratio,0.6889
+aktau_amct_tonnes_if_transposed,level_r,0.6453
+aktau_amct_tonnes_if_transposed,yoy_r,0.2026
+route_total_yoy_r_without_2022,roro_calls (n=5),0.2692
+route_total_yoy_r_without_2022,tanker_calls (n=5),0.4215
+route_total_yoy_r_without_2022,dry_calls (n=5),-0.9042
+blacksea_dry_calls_change_2021_2022,pct,0.1877
+caspian_dry_calls_change_2021_2022,pct,0.2779
+caspian_roro_calls_change_2021_2022,pct,2.877
+poti_roro_calls,2019,68.0
+poti_roro_calls,2020,42.0
+poti_roro_calls,2021,18.0
+poti_roro_calls,2022,46.0
+poti_roro_calls,2020-12..2021-03,0.0
+caspian_general_cargo_calls,2019,1169.0
+caspian_general_cargo_calls,2020,1370.0
+caspian_general_cargo_calls,2021,1798.0
+caspian_general_cargo_calls,2022,1628.0
+caspian_general_cargo_calls,2023,1169.0
+kuryk_ferry_calls_change_2021_2022,pct,0.5
+kuryk_tonnes_change_2021_2022,pct,0.8717
+turkmenbashi_2025,portwatch_tonnes,675647.0
+turkmenbashi_2025,official_tonnes,7316326.0
+turkmenbashi_2025,ratio,0.0923
+s1_2026_roadstead_mean,SENTINEL-1A,7.9318
+s1_2026_roadstead_mean,SENTINEL-1C,5.0
+s1_2026_roadstead_mean,SENTINEL-1D,4.9118
+s1a_2026_roadstead_monthly_mean,2026-01,2.7143
+s1a_2026_roadstead_monthly_mean,2026-02,3.6667
+s1a_2026_roadstead_monthly_mean,2026-03,8.875
+s1a_2026_roadstead_monthly_mean,2026-04,10.125
+s1a_2026_roadstead_monthly_mean,2026-05,9.25
+s1a_2026_roadstead_monthly_mean,2026-06,11.7143
+s1a_passes_after_first_s1d_pass,n,1.0
