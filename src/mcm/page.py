@@ -58,6 +58,7 @@ calls reported by the Kazakh maritime administration over {aktau.years_with_both
 <title>Middle Corridor Monitor</title>
 <style>{CSS}</style></head>
 <body><main>
+<img src="banner.png" alt="Mean Sentinel-1 radar image of the Port of Baku at Alat, 2019 to 2026. Contains modified Copernicus Sentinel data.">
 <p class="banner" role="note">Preliminary. Not peer reviewed.</p>
 <h1>Middle Corridor Monitor</h1>
 <p class="muted">{e(AUTHORS)}</p>
