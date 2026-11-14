@@ -1,6 +1,8 @@
+![Middle Corridor Monitor: title over the mean Sentinel-1 radar image of the Port of Baku at Alat](docs/banner.png)
+
 # Middle Corridor Monitor
 
-Status: **local draft, nothing published.** Preliminary. Not peer reviewed.
+Status: **private draft, not published.** Preliminary. Not peer reviewed.
 
 Authors: Aghasalim Mustafazada; Teymur Eyvazov (co-author to be confirmed before publication)
 
@@ -11,6 +13,16 @@ Middle Corridor. The headline series is the monthly count of non-tanker port cal
 dry bulk, general cargo, Ro-Ro) at Baku, Aktau and Turkmenbashi, indexed to the 2019 monthly
 mean = 100. Ro-Ro calls, tanker calls, PortWatch dry tonnage and a Black Sea comparator
 (Poti + Batumi) are reported alongside it.
+
+![Caspian non-tanker port-call index and Ro-Ro call index, 2019 monthly mean = 100](outputs/figures/index_headline.png)
+
+The index is a count of ship calls, not of cargo. In our checks it does **not** track the official
+Trans-Caspian route total year on year (see Limitations and `paper/paper.pdf`).
+
+![Port of Baku at Alat: mean Sentinel-1 radar image, port close-up and Sentinel-2 true colour, with the two counting zones](outputs/figures/sar_zones.png)
+
+All images in this repository are produced by its code from satellite or port-call data. None is an
+illustration. Radar and optical images contain modified Copernicus Sentinel data.
 
 ## Data sources
 
@@ -48,7 +60,7 @@ has a duplicated day or a missing day.
 | `src/mcm/build.py` | runs everything and writes outputs and the page |
 | `src/mcm/page.py` | writes `docs/index.html` |
 | `src/mcm/sar/` | Sentinel-1 detection at Alat: `fetch`, `run`, `report` (see `research/SAR_METHOD.md`) |
-| `research/` | research notes, literature, references, one-off check scripts |
+| `research/` | research notes, literature, references, one-off check scripts, `banner.py` (title image) |
 | `paper/` | draft paper (`paper.md`, `paper.pdf`) and `NUMBERS.md`, the source of every number in it |
 | `data/portwatch/` | daily CSV per port + snapshot.json |
 | `data/official/` | official figures |
