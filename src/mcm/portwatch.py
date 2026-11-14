@@ -1,6 +1,6 @@
 """Download IMF PortWatch daily port data (ArcGIS feature service) to data/portwatch/.
 
-Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org).
+Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org).
 """
 import json
 from datetime import datetime, timezone
@@ -63,7 +63,7 @@ def check_daily(df, portid):
 def download(data_dir=DATA_DIR):
     data_dir.mkdir(parents=True, exist_ok=True)
     snap = {"downloaded_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "source": URL, "citation": "Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org).",
+            "source": URL, "citation": "Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org).",
             "ports": {}}
     for pid, name in PORTS.items():
         df = fetch_port(pid)

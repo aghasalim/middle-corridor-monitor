@@ -328,3 +328,24 @@ New or changed numbers, all from `outputs/tables/paper_checks.csv` (written by `
 | 5.6 | "operator assumed for three" | `research/FERRY_FLEET.md` | fleet table, operator column | note |
 | 6 | Turkmenbashi 2025: PortWatch tonnage "9% of the official total" | `paper_checks.csv` | `turkmenbashi_2025` ratio 0.0923 (675,647 / 7,316,326) | rounded |
 | 2, 6 | "The World Bank's September 2026 report ... was not opened" | `research/OPEN_QUESTIONS.md` | item 9 | note |
+
+## Changes after the research pass (14 November 2026)
+
+Sources marked "re-opened" were opened again by the person assembling the paper; "agent" means opened once by a research agent (notes in `research/DEEP_*.md`).
+
+| Section | Number or claim | Source | Status |
+|---|---|---|---|
+| 2 | Association chart: 1.867 Mt (2025), 1.857 Mt (2024) | middlecorridor.com home-page chart `grafik_green_2026.svg` | re-opened (values read from the rendered image) |
+| 2 | Ministry series 4.484 Mt (2024) | `data/official/official_figures.csv` | as before |
+| 2 | Association press release 3.3 Mt (2024) | middlecorridor.com news of 4 March 2025 | agent |
+| 2 | World Bank 2026: no AIS or satellite data; 8.8 Mt across the Caspian in 2023 is model output | World Bank (2026), PDF p. 85 to 91, 241 | agent |
+| 2 | CyberLeninka search found no such work | `research/DEEP_RORO_AND_REGIONAL.md` | agent |
+| 3.1 | Port call = arrival at berth; provider named as Kpler | PortWatch FAQ, ArcGIS item 640b69a4a96f41a6937cb4d2984f26da | re-opened |
+| 3.1 | Provider exactEarth (2021 method paper), Spire (dataset description) | `research/DEEP_PORTWATCH_METHOD.md` finding 3.6 | agent |
+| 5.2 | Coverage change November 2021 at Gwangyang and the Malacca Strait | PortWatch FAQ | re-opened |
+| 5.2 | Ro-Ro calls 2 (Mar to May 2021), 20 (Jul), 33 (Aug), 61 (Dec); all calls mean 250 and 306 | `outputs/tables/coverage_break_check.csv` | own code |
+| 5.6 | Kuryk 1,560 kt and North Terminal 667 kt | Aktau port strategy 2022 to 2032, p. 7 | re-opened |
+| 5.6 | Two more ferries (Mingachevir, Ordubad) | `research/DEEP_RORO_AND_REGIONAL.md` | agent |
+| all | Citation line now "Sources: Kpler; UN Global Platform; IMF PortWatch" | PortWatch FAQ | re-opened |
+
+Not reproduced: the agent's Gwangyang query (298 calls in October 2021, 1,205 in December). The service refused requests on 14 November, so these figures are not in the paper.

@@ -4,7 +4,7 @@ import shutil
 
 import pandas as pd
 
-CITE = "Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org)."
+CITE = "Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org)."
 AUTHORS = "Aghasalim Mustafazada; Teymur Eyvazov (co-author to be confirmed before publication)"
 CSS = """
 :root{--fg:#1a1a1a;--muted:#555;--bg:#fff;--line:#ddd;--warn:#fff4d6;--warnline:#c99a00}
