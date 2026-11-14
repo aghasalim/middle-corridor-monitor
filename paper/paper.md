@@ -4,7 +4,7 @@
 
 Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium; third-year bachelor student, Creative Technologies & AI) and Teymur Eyvazov (University of Massachusetts Boston, USA)
 
-Working paper, 13 November 2026. Intended for SSRN and arXiv (econ.GN, cross-list stat.AP).
+Working paper, version of 14 November 2026.
 
 Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org).
 
@@ -51,7 +51,7 @@ The file `data/official/official_figures.csv` holds 517 published numbers with s
 
 No regular monthly series measures any of the four ports. The Port of Baku issues cumulative press releases at irregular intervals. The Kazakh port table (Aktau, Kuryk, the Aktau North Terminal or AMCT) is annual. The only single-month series is Kazakhstan's "cargo carried by sea transport". It counts cargo moved by Kazakh carriers, not cargo handled in ports, and most months of 2019 to 2022 are suppressed as confidential. Handled and carried tonnage differ widely: Azerbaijan in 2025 reports 12.96 Mt handled in seaports and 9.09 Mt carried by sea transport.
 
-The official figures also contradict each other. Kazakh seaports in 2025 handled 7.453 Mt in the port table and 8 Mt in a press report. For the route total we use the Kazakh ministry series for 2019 to 2025, which has seven consecutive years. The association's chart series, found later, covers the same years and is far lower from 2023; it is not tested here. Its rows were carried over and not re-opened.
+The official figures also contradict each other. Kazakh seaports in 2025 handled 7.453 Mt in the port table and 8 Mt in a press report. For the route total we use the Kazakh ministry series for 2019 to 2025, which has seven consecutive years. The association's chart series, found later, covers the same years and is far lower from 2023; it is not tested here. The rows of the ministry series were carried over from earlier notes and not re-opened.
 
 ### 3.3 Sentinel-1
 
@@ -252,7 +252,7 @@ Until at least the first two exist, the index should be read as a count of PortW
 
 **Data and code.** All code, the official figures file with its source addresses, the output tables and the figures are in a public repository, https://github.com/aghasalim/middle-corridor-monitor (code under the MIT licence; text, figures and tables under CC BY 4.0). `python -m mcm.build` rebuilds the index and validation tables from a fresh PortWatch download. Every number in this paper is traced to a file in `paper/NUMBERS.md`.
 
-**Use of AI tools.** [to be reviewed by both authors] Code, literature search and drafting were done with an AI coding assistant (Claude, Anthropic) under the authors' direction. The authors are responsible for the content. The numbers can be recomputed from the repository, except that the source PDFs of the official figures, the radar image cache and the vessel-tracking pages are not stored in it. This statement follows the disclosure policies of arXiv and SSRN [@arxiv2023genai; @ssrn2026genai].
+**Use of AI tools.** Code, literature search and drafting were done with an AI coding assistant (Claude, Anthropic) under the authors' direction. The authors are responsible for the content. The numbers can be recomputed from the repository, except that the source PDFs of the official figures, the radar image cache and the vessel-tracking pages are not stored in it. This statement follows the disclosure policies of arXiv and SSRN [@arxiv2023genai; @ssrn2026genai].
 
 ## References
 
