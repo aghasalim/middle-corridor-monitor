@@ -6,6 +6,48 @@ Status: **private draft, not published.** Preliminary. Not peer reviewed.
 
 Authors: Aghasalim Mustafazada; Teymur Eyvazov (co-author to be confirmed before publication)
 
+![Animation, January 2019 to October 2026: radar detections at the Port of Baku at Alat next to the port-call index](docs/monitor.gif)
+
+One frame per month. Left: the mean Sentinel-1 radar image of the Port of Baku at Alat with that month's
+radar detections. They are bright objects on the water, not confirmed ships. Right: the index up to that
+month. The video is drawn by `research/video.py` from the data in this repository
+([MP4 version](docs/monitor.mp4)).
+
+## The question
+
+How much cargo crosses the Caspian Sea on the Middle Corridor? The official figures do not agree. For 2025
+the Kazakh Ministry of Transport reports 4.119 million tonnes on the route, and the route association's own
+chart shows 1.867 million tonnes. The international reports we read take their volumes from operators,
+railways, port authorities, surveys or models. None of them uses ship-tracking or satellite data, so the
+official figures have no independent check. This project tests whether open data can provide one.
+
+## What we found so far
+
+The results are mostly negative. The numbers below are from `paper/paper.pdf`; where each comes from is in
+`paper/NUMBERS.md`.
+
+| Question | Result |
+|---|---|
+| Does the index follow the ministry's route total? | No. Year-on-year correlation -0.05 (n = 6). |
+| Does PortWatch tonnage forecast Aktau's monthly cargo? | No. It loses to two naive forecasts. |
+| Where does PortWatch agree with official data? | Vessel-call levels and oil tonnage at Aktau. Not year-on-year changes in calls. |
+| How much dry cargo does it see at Baku? | About 12% of the official total. |
+| Is the fourfold rise in Ro-Ro calls from 2021 to 2022 real? | Not on the evidence. Official ferry statistics for Kuryk show +50% in calls and +87% in tonnes. The cause is not confirmed. |
+| What is missing? | Kuryk, with 18% to 30% of Kazakh seaport cargo (one year is in doubt), is not in PortWatch. |
+| Does radar confirm the counts? | Not yet. 3,333 objects in 671 passes at Alat, none labelled by hand. |
+
+![Ro-Ro calls per port, 2021 to 2023: the step appears at all three Caspian ports](outputs/figures/index_roro_step.png)
+
+![All radar detections 2019 to 2026 on the mean radar image of Alat, by counting zone](outputs/figures/sar_detection_map.png)
+
+![Radar detections per pass over time at Alat, basin and roadstead](outputs/figures/sar_timeseries.png)
+
+## Who did what
+
+- Aghasalim Mustafazada (third-year bachelor student, Creative Technologies & AI, Howest, Belgium):
+  Sentinel-1 radar detection, hand-labelling kit, project page, images and video.
+- Co-author (to be confirmed): index, statistics, validation against official figures.
+
 ## Purpose
 
 An open, monthly, independently checkable measure of cargo crossing the Caspian leg of the
@@ -50,24 +92,7 @@ python -m venv .venv
 (On macOS/Linux use `.venv/bin/python`.) The build fails loudly if a port's download is short,
 has a duplicated day or a missing day.
 
-## Repository layout
-
-| Path | What |
-|---|---|
-| `src/mcm/portwatch.py` | download and check PortWatch daily data |
-| `src/mcm/index.py` | monthly aggregation, 2019 = 100 indices, rolling 12-month sum, Ro-Ro step diagnostic |
-| `src/mcm/validate.py` | comparison with official figures (cumulative releases to increments, same-period sums, ratios, YoY growth, Pearson/Spearman with n) |
-| `src/mcm/build.py` | runs everything and writes outputs and the page |
-| `src/mcm/page.py` | writes `docs/index.html` |
-| `src/mcm/sar/` | Sentinel-1 detection at Alat: `fetch`, `run`, `report` (see `research/SAR_METHOD.md`) |
-| `research/` | research notes, literature, references, one-off check scripts, `banner.py` (title image); `DEEP_*.md` are the 14 Nov 2026 research pass, with each claim marked verified or unverified |
-| `paper/` | draft paper (`paper.md`, `paper.pdf`) and `NUMBERS.md`, the source of every number in it |
-| `data/portwatch/` | daily CSV per port + snapshot.json |
-| `data/official/` | official figures |
-| `outputs/tables/` | `index_*.csv`, `validate_*.csv`, `sar_*.csv` |
-| `outputs/figures/` | `index_*.png`, `sar_*.png` |
-| `docs/` | static page for GitHub Pages (generated) |
-| `tests/` | pytest, synthetic data only |
+The video and the title image are rebuilt with `research/video.py` (needs ffmpeg) and `research/banner.py`.
 
 ## Limitations
 
