@@ -4,7 +4,7 @@
 
 Status: **private draft, not published.** Preliminary. Not peer reviewed.
 
-Authors: Aghasalim Mustafazada; Teymur Eyvazov (co-author to be confirmed before publication)
+Authors: Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium); Teymur Eyvazov (University of Massachusetts Boston, USA)
 
 ![Animation, January 2019 to October 2026: radar detections at the Port of Baku at Alat next to the port-call index](docs/monitor.gif)
 
@@ -46,7 +46,7 @@ The results are mostly negative. The numbers below are from `paper/paper.pdf`; w
 
 - Aghasalim Mustafazada (third-year bachelor student, Creative Technologies & AI, Howest, Belgium):
   Sentinel-1 radar detection, hand-labelling kit, project page, images and video.
-- Co-author (to be confirmed): index, statistics, validation against official figures.
+- Teymur Eyvazov (University of Massachusetts Boston, USA): index, statistics, validation against official figures.
 
 ## Purpose
 
