@@ -100,7 +100,7 @@ explained (single-break estimate of the first month of the higher level: {e(step
 <h2>Data</h2>
 <p>{e(CITE)}</p>
 <p class="muted">Daily port calls by ship type from the PortWatch Daily_Ports_Data service, ports Baku (port100),
-Aktau (port16), Turkmenbashi (port1330), Poti (port1016), Batumi (port127). Licence to be decided before publication.</p>
+Aktau (port16), Turkmenbashi (port1330), Poti (port1016), Batumi (port127). Code: MIT licence. Text and figures: CC BY 4.0. Repository: <a href="https://github.com/aghasalim/middle-corridor-monitor">https://github.com/aghasalim/middle-corridor-monitor</a>.</p>
 </main></body></html>
 """
     (docs / "index.html").write_text(page, encoding="utf-8")

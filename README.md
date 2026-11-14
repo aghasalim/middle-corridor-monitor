@@ -2,7 +2,7 @@
 
 # Middle Corridor Monitor
 
-Status: **private draft, not published.** Preliminary. Not peer reviewed.
+Status: **public draft.** Preliminary. Not peer reviewed. Page: https://aghasalim.github.io/middle-corridor-monitor/
 
 Authors: Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium); Teymur Eyvazov (University of Massachusetts Boston, USA)
 
@@ -111,4 +111,9 @@ The video and the title image are rebuilt with `research/video.py` (needs ffmpeg
 
 ## Licence
 
-To be decided before publication.
+- Code: MIT, see `LICENSE`.
+- Text, figures, tables, the video and the paper: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+- Third-party data keep their own terms. `data/portwatch/` is a copy of public IMF PortWatch data and must be
+  cited as: Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org). Radar and optical images
+  contain modified Copernicus Sentinel data. The figures in `data/official/` belong to the bodies that
+  published them; each row gives its source.

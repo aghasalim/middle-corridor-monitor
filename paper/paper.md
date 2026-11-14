@@ -1,6 +1,6 @@
 # Middle Corridor Monitor: what open AIS-derived port data can and cannot say about cargo crossing the Caspian
 
-**Draft, not peer reviewed, not yet published.**
+**Draft, not peer reviewed.**
 
 Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium; third-year bachelor student, Creative Technologies & AI) and Teymur Eyvazov (University of Massachusetts Boston, USA)
 
@@ -250,7 +250,7 @@ Until at least the first two exist, the index should be read as a count of PortW
 
 ## 8. Data and code availability, and use of AI tools
 
-**Data and code.** All code, the official figures file with its source addresses, the output tables and the figures are in a local repository. It is not public yet. It will be made public after both authors agree, and the licence is still to be decided. `python -m mcm.build` rebuilds the index and validation tables from a fresh PortWatch download. Every number in this paper is traced to a file in `paper/NUMBERS.md`.
+**Data and code.** All code, the official figures file with its source addresses, the output tables and the figures are in a public repository, https://github.com/aghasalim/middle-corridor-monitor (code under the MIT licence; text, figures and tables under CC BY 4.0). `python -m mcm.build` rebuilds the index and validation tables from a fresh PortWatch download. Every number in this paper is traced to a file in `paper/NUMBERS.md`.
 
 **Use of AI tools.** [to be reviewed by both authors] Code, literature search and drafting were done with an AI coding assistant (Claude, Anthropic) under the authors' direction. The authors are responsible for the content. The numbers can be recomputed from the repository, except that the source PDFs of the official figures, the radar image cache and the vessel-tracking pages are not stored in it. This statement follows the disclosure policies of arXiv and SSRN [@arxiv2023genai; @ssrn2026genai].
 
