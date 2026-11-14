@@ -12,7 +12,7 @@ from mcm import index as ix, page, portwatch, validate  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 TABLES = ROOT / "outputs" / "tables"
 FIGS = ROOT / "outputs" / "figures"
-CITE = "Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org)."
+CITE = "Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org)."
 
 
 def footer(fig, last):

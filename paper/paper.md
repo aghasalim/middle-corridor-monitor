@@ -6,7 +6,7 @@ Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium; third-yea
 
 Working paper, 13 November 2026. Intended for SSRN and arXiv (econ.GN, cross-list stat.AP).
 
-Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org).
+Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org).
 
 ## 1. Abstract
 
@@ -14,15 +14,15 @@ We build an open monthly index of cargo ship calls on the Caspian leg of the Mid
 
 ## 2. Introduction and question
 
-The Middle Corridor carries freight between Central Asia and Europe across the Caspian Sea. Its sea leg links the Kazakh ports of Aktau and Kuryk, the Turkmen port of Turkmenbashi, and the Port of Baku at Alat in Azerbaijan. How much cargo crosses is not settled. For 2025 the Kazakh Ministry of Transport reports 4.119 million tonnes (Mt) on the route, and a figure of 1.867 Mt attributed to the route association was seen only in a search snippet. For 2024 the association published 3.3 Mt and the ministry 4.484 Mt. Only the association's 2024 figure states a basis (via the seaports of Kazakhstan and Azerbaijan).
+The Middle Corridor carries freight between Central Asia and Europe across the Caspian Sea. Its sea leg links the Kazakh ports of Aktau and Kuryk, the Turkmen port of Turkmenbashi, and the Port of Baku at Alat in Azerbaijan. How much cargo crosses is not settled. For 2025 the Kazakh Ministry of Transport reports 4.119 million tonnes (Mt) on the route, while the route association's own chart shows 1.867 Mt [@titr2026chart]. The two series agree up to 2022 and part afterwards (2024: 4.484 Mt against 1.857 Mt), and the association's chart for 2024 is also below the 3.3 Mt in its own press release. For 2024 the association published 3.3 Mt and the ministry 4.484 Mt. Only the association's 2024 figure states a basis (via the seaports of Kazakhstan and Azerbaijan).
 
-The World Bank, OECD, EBRD, ADB and CAREC reports that we read take their volumes from operators, the route association, railways and port authorities, or from surveys and models [@worldbank2023middle; @oecd2023realising; @oecd2025enhancing; @ebrd2023sustainable; @adb2024tradeflows; @carec2022cpmm; @carec2024cpmm]. We found no use of ship-tracking (AIS) or satellite data in any of them. So, in the reports we read, the official figures have no independent benchmark. The World Bank's September 2026 report on the corridor was not opened.
+The World Bank, OECD, EBRD, ADB and CAREC reports that we read take their volumes from operators, the route association, railways and port authorities, or from surveys and models [@worldbank2023middle; @oecd2023realising; @oecd2025enhancing; @ebrd2023sustainable; @adb2024tradeflows; @carec2022cpmm; @carec2024cpmm]. We found no use of ship-tracking (AIS) or satellite data in any of them. So, in the reports we read, the official figures have no independent benchmark. The World Bank's September 2026 report uses no AIS or satellite data; its 8.8 Mt across the Caspian in 2023 comes from a trade and transport model [@worldbank2026integration] (read once, in a later research pass).
 
 Port calls and draught changes from AIS have been turned into trade indicators for single countries and for the world [@arslanalp2019big; @cerdeiro2020world; @arslanalp2021tracking; @verschuur2021global; @lechthaler2022kiel; @stamer2024thinking]. IMF PortWatch publishes daily port calls and tonnage estimates per port from this work [@portwatch2026dailyports; @arslanalp2025nowcasting; @arslanalp2026nowcasting]. The Pacific island study explains 89% of the variation in official statistics [@arslanalp2021tracking], and the payload formula was validated for bulk carriers [@jia2019estimating] (abstract only read). We found no published validation for Ro-Ro ships or rail ferries. An ADB review notes that draught-based trade estimates "may not be more accurate than using port call information" [@adb2023ais].
 
 Two recent works are closest to ours. The Black Sea-Middle Corridor Integration Index is an annual readiness index of eleven component indices over 19 port or route-year observations, and uses no AIS data [@gondauri2026bsmcii]. A 2026 policy brief reports author-compiled vessel counts for Caspian ports over a window in April 2026 without naming its data source [@wu2026caspianshock]. For radar, the global vessel map of Paolo et al. excludes water within 1 km of shore [@paolo2024satellite], and by our check of its published study area it does not cover the Caspian.
 
-We found no open, documented, recurring AIS-based or radar-based measure of the Caspian leg. Google Scholar, eLIBRARY, CyberLeninka and RePEc could not be searched properly, so this holds less firmly for Russian-language work.
+We found no open, documented, recurring AIS-based or radar-based measure of the Caspian leg. A later search of CyberLeninka in Russian found no such work. Google Scholar, eLIBRARY and RePEc could not be searched properly, so this holds less firmly for Russian-language work.
 
 What we add is narrow. A monthly sum of PortWatch data is a re-aggregation, not a contribution in itself. The contribution is the check: a reproducible index, a file of 517 official figures, about half of which can be set against a PortWatch period, a first radar count at Alat, and a plain account of where each fails. We ask three questions.
 
@@ -36,7 +36,7 @@ What we add is narrow. A monthly sum of PortWatch data is a re-aggregation, not 
 
 We use the PortWatch `Daily_Ports_Data` service for five ports: Baku (port100), Aktau (port16), Turkmenbashi (port1330), and as a comparator the Black Sea ports Poti (port1016) and Batumi (port127). The download of 13 November 2026 holds 2,867 days per port, from 1 January 2019 to 6 November 2026.
 
-PortWatch defines a port call as a ship entering a port boundary. It drops calls with a turnaround under five hours and no change in draught. It reports five ship types: container, dry bulk, general cargo, Ro-Ro and tanker. Tonnage is estimated from the change in draught. The AIS data come from Spire through the UN Global Platform [@portwatch2026dailyports; @arslanalp2021tracking].
+PortWatch's dataset description defines a port call as a ship entering a port boundary; its FAQ says arrival at berth [@portwatch2026faq]. The exact rule and the port boundaries are not published. It drops calls with a turnaround under five hours and no change in draught. It reports five ship types: container, dry bulk, general cargo, Ro-Ro and tanker. Tonnage is estimated from the change in draught. The AIS data come through the UN Global Platform; the provider is named as exactEarth in the 2021 method paper, Spire in the dataset description and Kpler in the current FAQ [@portwatch2026dailyports; @arslanalp2021tracking; @portwatch2026faq].
 
 Four exclusions matter here.
 
@@ -51,7 +51,7 @@ The file `data/official/official_figures.csv` holds 517 published numbers with s
 
 No regular monthly series measures any of the four ports. The Port of Baku issues cumulative press releases at irregular intervals. The Kazakh port table (Aktau, Kuryk, the Aktau North Terminal or AMCT) is annual. The only single-month series is Kazakhstan's "cargo carried by sea transport". It counts cargo moved by Kazakh carriers, not cargo handled in ports, and most months of 2019 to 2022 are suppressed as confidential. Handled and carried tonnage differ widely: Azerbaijan in 2025 reports 12.96 Mt handled in seaports and 9.09 Mt carried by sea transport.
 
-The official figures also contradict each other. Kazakh seaports in 2025 handled 7.453 Mt in the port table and 8 Mt in a press report. For the route total we use the Kazakh ministry series for 2019 to 2025, the only one with seven consecutive years. Its rows were carried over and not re-opened.
+The official figures also contradict each other. Kazakh seaports in 2025 handled 7.453 Mt in the port table and 8 Mt in a press report. For the route total we use the Kazakh ministry series for 2019 to 2025, which has seven consecutive years. The association's chart series, found later, covers the same years and is far lower from 2023; it is not tested here. Its rows were carried over and not re-opened.
 
 ### 3.3 Sentinel-1
 
@@ -103,7 +103,7 @@ Non-tanker calls at the three ports rise from 1,442 in 2019 to 2,621 in 2022, fa
 
 ![Headline index and Ro-Ro calls](../outputs/figures/index_headline.png)
 
-*Figure 1. Caspian non-tanker port calls (headline) and Ro-Ro calls, 2019 monthly mean = 100. Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org).*
+*Figure 1. Caspian non-tanker port calls (headline) and Ro-Ro calls, 2019 monthly mean = 100. Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org).*
 
 The Black Sea comparator shows no trend: Poti plus Batumi stay between 847 and 1,122 non-tanker calls a year, though they also rise by 19% in 2022, against 28% for the Caspian. That does not make the Caspian rise real growth. The whole rise between 2021 and 2022 comes from Ro-Ro calls: they rise by 702, while all non-tanker calls rise by 570. The other three types together fall by 132.
 
@@ -135,7 +135,7 @@ Four checks narrow the question without closing it.
 - Among the 14 ferries we identified, none listed as a Ro-Ro cargo ship was built or delivered in 2021 or 2022. Several ferries remain unidentified.
 - The Kazakh port table records 2 to 22 ferry calls a year at Aktau in 2019 to 2024. PortWatch records 28 to 183 Ro-Ro calls a year there. What PortWatch classes as Ro-Ro at Aktau is not what the port counts as ferries.
 
-The cause of the step is not confirmed. A change in the AIS data feed for the Caspian, or in how certain ships are classified, is the leading explanation. Real growth is not. No PortWatch or IMF document that we read mentions a break in 2021 or 2022. Global Fishing Watch reports that its own change of AIS vendor changed its data volume, and warns against comparing before and after [@gfw2026vendor]. Until this is settled, Ro-Ro calls before 2022 should not be compared with later ones.
+The cause of the step is not confirmed. A change in the AIS data feed for the Caspian, or in how certain ships are classified, is the leading explanation. Real growth is not. PortWatch's FAQ states that expanded AIS receiver coverage in November 2021 caused a sustained increase in recorded port calls at Gwangyang in Korea and in Malacca Strait transits [@portwatch2026faq]. It names no Caspian port. So coverage steps of this kind are documented in the data, but the timing here fits only partly: Ro-Ro calls at the three ports rise from 2 a month in March to May 2021 to 20 in July and 33 in August, before November, and reach 61 in December. All calls average 250 a month in January to October 2021 and 306 in November 2021 to February 2022. Global Fishing Watch reports that its own change of AIS vendor changed its data volume, and warns against comparing before and after [@gfw2026vendor]. Until this is settled, Ro-Ro calls before 2022 should not be compared with later ones.
 
 ### 5.3 Where PortWatch agrees with official data, and where it does not
 
@@ -188,7 +188,7 @@ So the test fails. It cannot tell us whether PortWatch would predict a port-base
 
 We cannot give one number. Beyond the ferry cargo missing at Baku (section 5.3), we can name two gaps, and say why the radar check does not yet measure them.
 
-**Kuryk.** In the Kazakh port table Kuryk handles 18% to 30% of all Kazakh seaport cargo in 2019 to 2025 and receives 412 to 700 ferry calls a year in 2019 to 2024 (Table 4). The 2020 share is 12.5% as published, but the 2020 tonnages for Kuryk and AMCT appear transposed in the source table. Ferry cargo for all Kazakh ports equals Kuryk's tonnage within 0.5% in every other year and equals AMCT's in 2020, and an Aktau port report gives AMCT 667 kt for 2020. Read that way the 2020 share is 29.2%. We could not confirm this at the source. The World Bank describes Kuryk's cargo as mainly trucks and rail wagons on the route to Baku [@worldbank2023middle]. Yet in 2019 to 2021 PortWatch records only 119 to 131 Ro-Ro calls a year at Baku, well below the ferry calls that Kuryk alone reports.
+**Kuryk.** In the Kazakh port table Kuryk handles 18% to 30% of all Kazakh seaport cargo in 2019 to 2025 and receives 412 to 700 ferry calls a year in 2019 to 2024 (Table 4). The 2020 share is 12.5% as published, but the 2020 tonnages for Kuryk and AMCT appear transposed in the source table. Ferry cargo for all Kazakh ports equals Kuryk's tonnage within 0.5% in every other year and equals AMCT's in 2020, and an Aktau port report gives AMCT 667 kt for 2020. Read that way the 2020 share is 29.2%. A second document supports this: the Aktau port's strategy for 2022 to 2032 gives Kuryk 1,560 kt and the North Terminal 667 kt in a table whose other rows carry 2020 values, though its caption says 2021 [@aktau2022strategy]. It may draw on the same administration data, so it is not independent proof. The World Bank describes Kuryk's cargo as mainly trucks and rail wagons on the route to Baku [@worldbank2023middle]. Yet in 2019 to 2021 PortWatch records only 119 to 131 Ro-Ro calls a year at Baku, well below the ferry calls that Kuryk alone reports.
 
 **Table 4. Kuryk in the Kazakh port table, and PortWatch Ro-Ro calls.**
 
@@ -204,7 +204,7 @@ We cannot give one number. Beyond the ferry cargo missing at Baku (section 5.3),
 
 *\* As published. If Kuryk and AMCT are transposed in 2020: 1,560.1 kt and 29.2%.*
 
-**Ferries that broadcast as passenger ships.** We identified 14 Caspian ferries on public vessel-tracking pages (listed in `research/FERRY_FLEET.md`). Eight are listed on VesselFinder as "Passenger/Ro-Ro Cargo Ship", and five of those broadcast the AIS type "Passenger ship". Six are listed as "Ro-Ro Cargo Ship", and five of those broadcast "Cargo ship". The World Bank counts 15 rail ferries, 2 Ro-Ro ships and 2 Ro-Pax ships in the fleet of the Azerbaijan Caspian Shipping Company alone [@worldbank2023middle], and 12 of our 14 are attributed to that fleet (operator assumed for three), so our list is incomplete. PortWatch has no passenger category, so the passenger/Ro-Ro ferries are likely outside its Ro-Ro count. Which field PortWatch classifies by is not documented, so this is unverified.
+**Ferries that broadcast as passenger ships.** We identified 14 Caspian ferries on public vessel-tracking pages (listed in `research/FERRY_FLEET.md`). Eight are listed on VesselFinder as "Passenger/Ro-Ro Cargo Ship", and five of those broadcast the AIS type "Passenger ship". Six are listed as "Ro-Ro Cargo Ship", and five of those broadcast "Cargo ship". The World Bank counts 15 rail ferries, 2 Ro-Ro ships and 2 Ro-Pax ships in the fleet of the Azerbaijan Caspian Shipping Company alone [@worldbank2023middle], and 12 of our 14 are attributed to that fleet (operator assumed for three), so our list is incomplete. A later search found two more ships of that company (Mingachevir, listed as Ro-Ro cargo, and Ordubad, passenger/Ro-Ro); they are not in these counts. PortWatch has no passenger category, so the passenger/Ro-Ro ferries are likely outside its Ro-Ro count. Which field PortWatch classifies by is not documented, so this is unverified.
 
 **Radar at Alat.** The detector counted 3,333 objects in 671 passes: 845 in the basin and 2,488 in the roadstead (Table 5, Figure 3). These are bright transient blobs on water, not vessels. Precision and recall are unknown until the 186 detections in the kit are labelled by hand.
 
@@ -237,7 +237,7 @@ Month by month over 94 months, the total blob count per pass correlates with Por
 - **Short samples.** Annual correlations rest on n of 5 to 7, the two that look good depend on one year, and 56 pairs were tested.
 - **Radar.** No labelled data, Alat only, a platform change in 2026, and passes missing at the source unevenly by year.
 - **Official series.** They contradict each other, mix handled and carried cargo and use different port definitions. One pair of 2020 figures appears transposed. Turkmenbashi has one official year: in 2025 PortWatch tonnage there is 9% of the official total.
-- **Revisions and search.** PortWatch adds ports and refines boundaries [@arslanalp2026nowcasting]; our results describe the download of 13 November 2026. No proper pass through Google Scholar, eLIBRARY, CyberLeninka or RePEc was possible, and the World Bank's September 2026 report was not opened.
+- **Revisions and search.** PortWatch adds ports and refines boundaries [@arslanalp2026nowcasting]; our results describe the download of 13 November 2026. No proper pass through Google Scholar, eLIBRARY or RePEc was possible.
 
 ## 7. What would make this work
 
@@ -276,9 +276,13 @@ Until at least the first two exist, the index should be read as a count of PortW
 - [@oecd2023realising] OECD (2023). Realising the Potential of the Middle Corridor. OECD Publishing, Paris. doi:10.1787/635ad854-en
 - [@oecd2025enhancing] OECD (2025). Enhancing the Competitiveness of the Trans-Caspian Transport Corridor in Central Asia. OECD Publishing, Paris. doi:10.1787/f261e7fa-en
 - [@paolo2024satellite] Paolo, Fernando S.; Kroodsma, David; Raynor, Jennifer; Hochberg, Tim; Davis, Pete; Cleary, Jesse; Marsaglia, Luca; Orofino, Sara; Thomas, Christian; Halpin, Patrick (2024). Satellite mapping reveals extensive industrial activity at sea. Nature 625, 85-91. doi:10.1038/s41586-023-06825-8
-- [@portwatch2026dailyports] IMF PortWatch. Daily_Ports_Data (ArcGIS item description and dataset). ArcGIS Online item 83b1bbc7b3354c5fb1f40673bb8f852e. https://www.arcgis.com/home/item.html?id=83b1bbc7b3354c5fb1f40673bb8f852e. Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org). Accessed 13 Nov 2026.
+- [@portwatch2026dailyports] IMF PortWatch. Daily_Ports_Data (ArcGIS item description and dataset). ArcGIS Online item 83b1bbc7b3354c5fb1f40673bb8f852e. https://www.arcgis.com/home/item.html?id=83b1bbc7b3354c5fb1f40673bb8f852e. Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org). Accessed 13 Nov 2026.
+- [@portwatch2026faq] IMF PortWatch. Frequently asked questions (ArcGIS item 640b69a4a96f41a6937cb4d2984f26da, modified 21 October 2026). https://portwatch.imf.org/pages/faqs (opened 14 November 2026)
 - [@ssrn2026genai] SSRN (2026). What is SSRN's Policy on the Use of Generative AI by Authors? Elsevier Support Center. https://www.elsevier.support/ssrn/answer/AI
 - [@stamer2024thinking] Stamer, Vincent (2024). Thinking outside the container: A sparse partial least squares approach to forecasting trade flows. International Journal of Forecasting 40(4), 1336-1358. doi:10.1016/j.ijforecast.2023.11.007. Abstract only (OpenAlex); full text not opened.
 - [@verschuur2021global] Verschuur, Jasper; Koks, Elco E.; Hall, Jim W. (2021). Global economic impacts of COVID-19 lockdown measures stand out in high-frequency shipping data. PLoS ONE 16(4), e0248818. doi:10.1371/journal.pone.0248818
 - [@worldbank2023middle] World Bank (2023). Middle Trade and Transport Corridor: Policies and Investments to Triple Freight Volumes and Halve Travel Time by 2030. World Bank, Washington, DC. https://openknowledge.worldbank.org/handle/10986/40626
+- [@worldbank2026integration] World Bank (2026). Integration: World-Class Trade Logistics Along the Trans-Caspian Transport Corridor. World Bank, Washington, DC. https://www.worldbank.org/en/region/eca/publication/world-class-trade-logistics-along-trans-caspian-transport-corridor (opened 14 November 2026)
+- [@titr2026chart] TITR International Association. Transportation volume via TITR, thousand tons (home-page chart, values read from the image). https://middlecorridor.com/en/ (opened 14 November 2026)
+- [@aktau2022strategy] Aktau International Sea Trade Port (2022). Development strategy 2022 to 2032, p. 7 (in Russian). https://portaktau.kz/wp-content/uploads/2026/02/strategiya-razvitiya-amtp-2022-2032.pdf (opened 14 November 2026)
 - [@wu2026caspianshock] Wu, Shaoyuan (2026). Caspian Logistics Shock: Monitoring Russia-Iran Supply Stress after the Anzali Strike: Visible Vessel Contraction, Port-Rhythm Inversion, and Window-Based Logistics in the Caspian Corridor. EPINOVA Policy Brief EPINOVA-2026-PB-44. EPINOVA LLC. doi:10.67037/epinova.pb.2026.044

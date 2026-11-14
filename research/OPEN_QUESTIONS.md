@@ -20,3 +20,16 @@ Ordered by how much each one blocks the index.
 | 14 | Endorser for arXiv econ.GN / stat.AP | Needed to post on arXiv at all (Step 1 g) | Ask a co-author of any PortWatch WP or a known AIS-trade author; only the user should send that request |
 | 15 | TITR 2025 figures conflict (1.867 Mt vs 4.119 Mt vs 4.5–4.7 Mt; Step 1 e) | Benchmark for the index | Read the TITR Association and Kazakh Ministry of Transport primary releases. Outside this file's scope; listed for completeness |
 | 16 | Crisp (2004) CFAR review and UN AIS Handbook not opened (DTIC 403; UN wiki 404) | Needed for citation | Open in a normal browser; otherwise cite SUMO (Greidanus et al. 2017) as the CFAR reference after reading its full text (MDPI blocked to scripts) |
+
+## Update after the research pass of 14 November 2026
+
+Details and sources: `DEEP_PORTWATCH_METHOD.md`, `DEEP_OFFICIAL_SOURCES.md`, `DEEP_RORO_AND_REGIONAL.md`.
+
+- Port polygons: still not published anywhere. An IMF paper says boundaries are available from the authors on request, so this now needs an email to PortWatch (not sent).
+- Ship-type mapping: PortWatch's own table is not published. The published table of the method it grew from removes passenger/Ro-Ro ships.
+- Ro-Ro step: PortWatch's FAQ documents a coverage change in November 2021 (Gwangyang, Malacca Strait). No document links it to the Caspian, and no fleet or ferry-line event explains the step. See `coverage_break_check.py`.
+- Kuryk/AMCT 2020: a second document (Aktau port strategy, p. 7) supports the swap. Not independent proof.
+- Route total: the association's own chart series (759, 784, 586, 1,485, 1,629, 1,857, 1,867 kt for 2019 to 2025) is far below the ministry series from 2023. Neither has a published definition. The index has not been tested against the association series yet (Teymur's part).
+- World Bank September 2026 report: opened; no AIS or satellite data; its Caspian volumes are model output.
+- Still not searched properly: Google Scholar, eLIBRARY, RePEc, DergiPark's own search. No monthly official series found for Baku or Turkmenbashi.
+- Ferry list: two more ASCO ships found (Mingachevir, Ordubad); `FERRY_FLEET.md` not yet updated.

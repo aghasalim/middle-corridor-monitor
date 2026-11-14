@@ -10,7 +10,7 @@ from pypdf import PdfReader
 HERE = pathlib.Path(__file__).parent
 CHROME = sys.argv[1] if len(sys.argv) > 1 else r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 CSS = """
-@page{size:A4;margin:16mm 16mm}
+@page{size:A4;margin:14mm 15mm}
 body{font:9.5pt/1.25 Georgia,'Times New Roman',serif;color:#000}
 h1{font-size:17pt;margin:0 0 6pt}h2{font-size:12pt;margin:10pt 0 3pt}h3{font-size:11pt;margin:10pt 0 3pt}
 p{margin:0 0 6pt;text-align:justify}img{max-width:100%;max-height:50mm;display:block;margin:4pt auto}img[src*="roro_step"]{max-height:68mm}

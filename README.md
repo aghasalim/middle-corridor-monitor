@@ -28,7 +28,7 @@ illustration. Radar and optical images contain modified Copernicus Sentinel data
 
 - IMF PortWatch daily port data (ArcGIS feature service `Daily_Ports_Data`), ports Baku
   (port100), Aktau (port16), Turkmenbashi (port1330), Poti (port1016), Batumi (port127).
-  Sources: UN Global Platform; IMF PortWatch (portwatch.imf.org).
+  Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org).
 - Official figures for validation (Port of Baku, Kazakh seaports, TITR route) in
   `data/official/official_figures.csv`, each row with its source URL and date.
 
@@ -60,7 +60,7 @@ has a duplicated day or a missing day.
 | `src/mcm/build.py` | runs everything and writes outputs and the page |
 | `src/mcm/page.py` | writes `docs/index.html` |
 | `src/mcm/sar/` | Sentinel-1 detection at Alat: `fetch`, `run`, `report` (see `research/SAR_METHOD.md`) |
-| `research/` | research notes, literature, references, one-off check scripts, `banner.py` (title image) |
+| `research/` | research notes, literature, references, one-off check scripts, `banner.py` (title image); `DEEP_*.md` are the 14 Nov 2026 research pass, with each claim marked verified or unverified |
 | `paper/` | draft paper (`paper.md`, `paper.pdf`) and `NUMBERS.md`, the source of every number in it |
 | `data/portwatch/` | daily CSV per port + snapshot.json |
 | `data/official/` | official figures |
