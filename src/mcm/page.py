@@ -5,7 +5,7 @@ import shutil
 import pandas as pd
 
 CITE = "Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org)."
-AUTHORS = "Aghasalim Mustafazada; Teymur Eyvazov (co-author to be confirmed before publication)"
+AUTHORS = "Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium); Teymur Eyvazov (University of Massachusetts Boston, USA)"
 CSS = """
 :root{--fg:#1a1a1a;--muted:#555;--bg:#fff;--line:#ddd;--warn:#fff4d6;--warnline:#c99a00}
 @media (prefers-color-scheme:dark){:root{--fg:#eee;--muted:#aaa;--bg:#141414;--line:#333;--warn:#3a3000;--warnline:#c99a00}

@@ -2,7 +2,7 @@
 
 **Draft, not peer reviewed, not yet published.**
 
-Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium; third-year bachelor student, Creative Technologies & AI) and Teymur Eyvazov [co-author and affiliation to be confirmed before publication]
+Aghasalim Mustafazada (Howest University of Applied Sciences, Belgium; third-year bachelor student, Creative Technologies & AI) and Teymur Eyvazov (University of Massachusetts Boston, USA)
 
 Working paper, 13 November 2026. Intended for SSRN and arXiv (econ.GN, cross-list stat.AP).
 
