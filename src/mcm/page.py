@@ -39,6 +39,9 @@ def write(s, step, snap, fig_dir, docs):
     titr = vs.loc[("TITR (Kazakh ministry series)", "tonnes_total", "dry_calls")]
     aktau = vs.loc[("Aktau incl. AMCT", "vessel_calls", "all_calls")]
     mo = pd.read_csv(tables / "validate_monthly_summary.csv").iloc[0]
+    lab = pd.read_csv(tables / "sar_label_eval.csv")
+    prec = lab[lab.measure.str.startswith("precision")].set_index("zone")
+    road, basin = prec.loc["roadstead"], prec.loc["basin"]
     checks = f"""<h2>Checks against official figures</h2>
 <ul>
 <li>The index does not track the official Trans-Caspian route total. Over {titr.level_n:.0f} years both rise
@@ -93,7 +96,10 @@ Tanker calls are reported separately and are not in the headline.</p>
 is several times below official figures. Calls are counted, not tonnes or containers.</li>
 <li>Ro-Ro calls step up four- to sixfold between 2021 and 2022 at all three ports at once. The cause is not
 explained (single-break estimate of the first month of the higher level: {e(steps)}).</li>
-<li>No hand-validated radar (Sentinel-1) ship counts exist yet.</li>
+<li>Radar (Sentinel-1) at Alat: an AI model labelled a sample of the detections. In the roadstead {road.yes:.0f} of
+{road.yes + road.no:.0f} decided detections are vessels; in the harbour basin only {basin.yes:.0f} of {basin.yes + basin.no:.0f},
+where most sit on piers and quays. No person has checked these labels beyond a 10-image spot check, so they are not
+a validated ship count.</li>
 </ul>
 <img src="index_roro_step.png" alt="Three panels of monthly Ro-Ro, general cargo and tanker calls at Baku, Aktau and Turkmenbashi, 2021 to 2023.">
 

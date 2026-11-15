@@ -1,0 +1,85 @@
+{
+  "plotting_plan": [
+    {"figure_id": "headline_index_and_roro", "plot_type": "plot", "data_source": "experimental_log.md", "aspect_ratio": "2:1",
+     "file": "outputs/figures/index_headline.png", "script": "src/mcm/build.py (line_chart)", "status": "existing, kept",
+     "objective": "Show the headline non-tanker index and the Ro-Ro index, 2019 monthly mean = 100, Jan 2019 to Oct 2026."},
+    {"figure_id": "roro_step_by_port", "plot_type": "plot", "data_source": "experimental_log.md", "aspect_ratio": "4:3",
+     "file": "outputs/figures/index_roro_step.png", "script": "src/mcm/build.py (roro_chart)", "status": "existing, kept",
+     "objective": "Show that the Ro-Ro step comes at all three ports within three months, next to general cargo and tanker calls."},
+    {"figure_id": "validation_annual", "plot_type": "plot", "data_source": "experimental_log.md", "aspect_ratio": "21:9",
+     "file": "outputs/figures/validation_annual.png", "script": "research/paper_figures.py", "status": "new",
+     "objective": "Left: PortWatch/official by year for four pairs of the annual table (agreement at Aktau, the 12% at Baku). Right: year-on-year change of the route total against the headline (Question 1)."},
+    {"figure_id": "validation_monthly", "plot_type": "plot", "data_source": "experimental_log.md", "aspect_ratio": "21:9",
+     "file": "outputs/figures/validation_monthly.png", "script": "research/paper_figures.py", "status": "new",
+     "objective": "Official monthly series and the three forecasts over the 30 out-of-sample months (Question 3)."},
+    {"figure_id": "sar_counting_zones", "plot_type": "plot", "data_source": "idea.md", "aspect_ratio": "21:9",
+     "file": "outputs/figures/sar_zones.png", "script": "src/mcm/sar/report.py", "status": "existing, newly used in the paper",
+     "objective": "Show the basin and roadstead zones at Alat on the mean Sentinel-1 image and a Sentinel-2 image."},
+    {"figure_id": "sar_blobs_per_pass", "plot_type": "plot", "data_source": "experimental_log.md", "aspect_ratio": "3:2",
+     "file": "outputs/figures/sar_timeseries.png", "script": "src/mcm/sar/report.py", "status": "existing, kept",
+     "objective": "Detections per pass by zone over 671 passes; caption states labels are AI-only."}
+  ],
+  "intro_related_work_plan": {
+    "cutoff_date": "2026-11-15",
+    "introduction_strategy": {
+      "hook": "Two official route totals for the Caspian leg agree to 2022 and part afterwards; no definition is published.",
+      "problem_gap": "Institutional reports take volumes from operators, associations, railways, port authorities, surveys or models; none uses AIS or satellite data.",
+      "search_directions": ["Middle Corridor / Trans-Caspian route institutional reports", "official route totals and their bases"],
+      "papers_from_repo": ["worldbank2023middle", "worldbank2026integration", "oecd2023realising", "oecd2025enhancing", "ebrd2023sustainable", "adb2024tradeflows", "carec2022cpmm", "carec2024cpmm", "titr2026chart"]
+    },
+    "related_work_strategy": {
+      "overview": "Three clusters. Fewer papers than the 30-50 the method suggests: only works that could be confirmed are kept; the field is narrow.",
+      "subsections": [
+        {"methodology_cluster": "AIS-based trade measurement and nowcasting",
+         "sota_investigation_mission": "IMF and other work turning AIS port calls and draught into trade indicators, and their validation against customs or port statistics.",
+         "limitation_hypothesis": "Validation is done for countries and for bulk or tanker trade; no published validation for Ro-Ro or rail ferries; port polygons and type mapping unpublished.",
+         "limitation_search_queries": ["AIS trade volume estimates reliable crude oil", "AIS nowcasting trade IMF working paper", "PortWatch port calls validation"],
+         "bridge_to_our_method": "We test PortWatch against port-level official figures on a corridor dominated by ferries.",
+         "papers": ["cerdeiro2020world", "arslanalp2019big", "arslanalp2021tracking", "arslanalp2025nowcasting", "arslanalp2026nowcasting", "verschuur2021global", "verschuur2022ports", "adland2017ais", "jia2019estimating", "lechthaler2022kiel", "stamer2024thinking", "adb2023ais", "portwatch2026dailyports", "portwatch2026faq"]},
+        {"methodology_cluster": "Satellite SAR vessel detection",
+         "sota_investigation_mission": "Sentinel-1 ship detection (CFAR-type detectors, mass processing, deep learning benchmarks, global maps).",
+         "limitation_hypothesis": "Global maps exclude near-shore water and the Caspian; harbour detection is hard because ships merge with quays.",
+         "limitation_search_queries": ["SUMO ship detector Sentinel-1", "xView3-SAR dark vessels", "satellite mapping industrial activity at sea"],
+         "bridge_to_our_method": "We use a simple change detector against a per-pixel reference in two zones and report precision per zone.",
+         "papers": ["torres2012sentinel", "greidanus2017sumo", "santamaria2017mass", "paolo2022xview3", "paolo2024satellite"]},
+        {"methodology_cluster": "Measuring the Middle Corridor and the Caspian",
+         "sota_investigation_mission": "Indices and monitors of the corridor and of Caspian shipping.",
+         "limitation_hypothesis": "Annual readiness indices without AIS; short-window vessel counts without a named source.",
+         "limitation_search_queries": ["Middle Corridor index", "Caspian ports vessel counts 2026"],
+         "bridge_to_our_method": "A documented, recurring, monthly AIS- and radar-based check.",
+         "papers": ["gondauri2026bsmcii", "wu2026caspianshock"]}
+      ]
+    }
+  },
+  "section_plan": [
+    {"section_title": "Abstract", "subsections": [],
+     "content_bullets": ["What was built (index, 517 official figures, radar count)", "Mostly negative: yoy r -0.05 (n = 6); loses to two naive forecasts", "Agreement at Aktau (call levels, oil); Baku dry 12%", "Ro-Ro fourfold vs Kuryk +50%/+87%; Kuryk 18-30% missing", "Radar AI labels 131/132 roadstead, 7/34 basin, not checked by a person"]},
+    {"section_title": "Introduction", "subsections": [],
+     "content_bullets": ["Route and the disagreement of the two route totals (experimental_log 1)", "No AIS or satellite data in the reports", "Contribution is the check, not the sum", "Three questions", "Paper map"]},
+    {"section_title": "Related work",
+     "subsections": [
+       {"title": "AIS-based trade measurement", "content_bullets": ["IMF line of work and PortWatch", "Validation results: Pacific 89%; crude exports; bulk payloads", "ADB caution on draught", "Gap: no Ro-Ro/rail-ferry validation"]},
+       {"title": "Radar vessel detection", "content_bullets": ["Sentinel-1 mission", "CFAR detectors and mass processing", "xView3 and the global map; near-shore exclusion; Caspian not covered"]},
+       {"title": "Measuring the corridor", "content_bullets": ["BSMCII", "EPINOVA brief", "Search limits: CyberLeninka yes; Scholar, eLIBRARY, RePEc not properly"]}
+     ]},
+    {"section_title": "Data", "subsections": [
+       {"title": "PortWatch", "content_bullets": ["ports, days, definitions, provider names", "four exclusions"]},
+       {"title": "Official figures", "content_bullets": ["517 rows by status", "no monthly port series", "contradictions; ministry series used"]},
+       {"title": "Sentinel-1", "content_bullets": ["passes per port", "Alat only: 672/703, 671 counted, gaps"]}]},
+    {"section_title": "Method", "subsections": [
+       {"title": "Index", "content_bullets": ["definition, rebase, what it is sensitive to", "single break by least squares (cite Bai 1997)"]},
+       {"title": "Validation design", "content_bullets": ["no estimates; 56 pairs; levels and yoy", "monthly expanding-window test against two naive forecasts (cite Hyndman and Koehler 2006)"]},
+       {"title": "Radar detector and labels", "content_bullets": ["change detection; zones (Figure sar_counting_zones)", "post-hoc choices disclosed", "kit; AI labels; spot check 8 of 10; Wilson intervals (cite Wilson 1927)"]}]},
+    {"section_title": "Results", "subsections": [
+       {"title": "The index series", "content_bullets": ["Table 1, Figure headline"]},
+       {"title": "The Ro-Ro step of 2021-22", "content_bullets": ["Table 2, Figure roro_step", "four checks", "cause not confirmed"]},
+       {"title": "Agreement and disagreement with official data", "content_bullets": ["Table 3, Figure validation_annual"]},
+       {"title": "Question 1", "content_bullets": ["none closely; the two good correlations rest on 2022"]},
+       {"title": "Question 3", "content_bullets": ["Figure validation_monthly; RMSEs; poor target"]},
+       {"title": "Question 2", "content_bullets": ["Kuryk, Table 4", "ferries as passenger ships", "radar, Table 5, Figure sar_blobs_per_pass"]}]},
+    {"section_title": "Limitations", "subsections": [], "content_bullets": ["as in paper.md section 6, unchanged in substance"]},
+    {"section_title": "What would make this work", "subsections": [], "content_bullets": ["human label check", "answers from PortWatch", "differenced releases", "Kuryk from radar", "closing sentence unchanged"]},
+    {"section_title": "Data and code availability; author contributions; use of AI tools", "subsections": [],
+     "content_bullets": ["repository and licences", "who did what", "AI use: coding assistant, AI labels, PaperOrchestra-style multi-agent drafting (cite Song et al. 2026); authors responsible"]}
+  ]
+}

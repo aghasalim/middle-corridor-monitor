@@ -1,0 +1,400 @@
+% Middle Corridor Monitor -- LaTeX version of the working paper (15 November 2026).
+% Build: pdflatex main && bibtex main && pdflatex main && pdflatex main
+% arXiv does not run BibTeX: upload main.tex, the generated main.bbl and figures/.
+% Every number is traced in ../NUMBERS.md.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{figures/}}
+\captionsetup{font=small,labelfont=bf}
+\newcommand{\Mt}{\,Mt}
+
+\title{Middle Corridor Monitor: what open AIS-derived port data can and cannot say about cargo crossing the Caspian}
+
+\author{Aghasalim Mustafazada\\
+\small Howest University of Applied Sciences, Belgium\\
+\small (third-year bachelor student, Creative Technologies \& AI)
+\and
+Teymur Eyvazov\\
+\small University of Massachusetts Boston, USA}
+
+\date{Working paper, version of 15 November 2026.\\
+\textbf{Preliminary, not peer reviewed.}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent We build an open monthly index of cargo ship calls on the Caspian leg of the Middle Corridor from IMF PortWatch daily port data for Baku, Aktau and Turkmenbashi (January 2019 to October 2026), and test it against official statistics and Sentinel-1 radar. The results are mostly negative. The headline index of non-tanker port calls does not track the route total published by the Kazakh Ministry of Transport: the year-on-year correlation is $-0.05$ ($n=6$). A monthly out-of-sample test on PortWatch tonnage at Aktau loses to two naive forecasts. PortWatch matches official vessel-call levels and oil tonnage at Aktau, but not year-on-year changes in calls. Its dry tonnage at Baku is about 12\% of the official total. Ro-Ro calls rise about fourfold between 2021 and 2022. Official ferry statistics for Kuryk show growth of 50\% in calls and 87\% in tonnes, not fourfold; the cause is not confirmed. Kuryk, with 18\% to 30\% of Kazakh seaport cargo (one year is in doubt), is not in PortWatch. Sentinel-1 radar detections at Alat, labelled by an AI model and not checked by a person beyond a 10-image spot check, look like vessels in the roadstead (131 of 132 decided) but mostly not in the harbour basin (7 of 34).
+
+\medskip
+\noindent\textbf{Keywords:} AIS; IMF PortWatch; Middle Corridor; Caspian Sea; Sentinel-1; trade statistics; validation.
+\end{abstract}
+
+\noindent\small Sources of port-call data: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org). Radar and optical images contain modified Copernicus Sentinel data.\normalsize
+
+% ---------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+The Middle Corridor carries freight between Central Asia and Europe across the Caspian Sea. Its sea leg links the Kazakh ports of Aktau and Kuryk, the Turkmen port of Turkmenbashi, and the Port of Baku at Alat in Azerbaijan. How much cargo crosses is not settled. For 2025 the Kazakh Ministry of Transport reports 4.119 million tonnes (Mt) on the route, while the route association's own chart shows 1.867\Mt{} \cite{titr2026chart}. The two series agree up to 2022 and part afterwards (2024: 4.484\Mt{} against 1.857\Mt). For 2024 the association also published 3.3\Mt{} in a press release, above its own chart. Only that press-release figure states a basis: cargo via the seaports of Kazakhstan and Azerbaijan.
+
+The World Bank, OECD, EBRD, ADB and CAREC reports that we read take their volumes from operators, the route association, railways and port authorities, or from surveys and models \cite{worldbank2023middle,oecd2023realising,oecd2025enhancing,ebrd2023sustainable,adb2024tradeflows,carec2022cpmm,carec2024cpmm}. We found no use of ship-tracking (AIS) or satellite data in any of them. The World Bank's September 2026 report also uses no AIS or satellite data; its 8.8\Mt{} across the Caspian in 2023 comes from a trade and transport model \cite{worldbank2026integration}. So, in the reports we read, the official figures have no independent benchmark.
+
+This paper asks whether open data can provide one. What we add is narrow. A monthly sum of PortWatch data is a re-aggregation, not a contribution in itself. The contribution is the check: a reproducible index, a file of 517 official figures, about half of which can be set against a PortWatch period, a first radar count at Alat, and a plain account of where each fails. We ask three questions:
+\begin{enumerate}
+\item Which official total does an AIS-based corridor index track?
+\item How much traffic does AIS-based data miss?
+\item Does the index predict the next official releases out of sample?
+\end{enumerate}
+Section~\ref{sec:related} places the work, Sections~\ref{sec:data} and~\ref{sec:method} describe the data and methods, Section~\ref{sec:results} gives the results, and Sections~\ref{sec:limits} and~\ref{sec:next} set out the limits and what would be needed to make the index useful. The answers to Questions 1 and 3 are no. The answer to Question 2 is that the gaps can be named but not yet measured.
+
+% ---------------------------------------------------------------
+\section{Related work}
+\label{sec:related}
+
+\paragraph{AIS-based trade measurement.} AIS data have found many uses beyond navigation, including trade flow estimation \cite{yang2019big}. Port calls and draught changes from AIS have been turned into trade indicators for single countries and for the world \cite{arslanalp2019big,cerdeiro2020world,arslanalp2021tracking,verschuur2021global,lechthaler2022kiel,stamer2024thinking}, and into measures of shipping delays and port congestion \cite{komaromi2022supply}. IMF PortWatch publishes daily port calls and tonnage estimates per port from this line of work \cite{portwatch2026dailyports,arslanalp2025nowcasting,arslanalp2026nowcasting}; its port database grew from a model of port-level trade flows \cite{verschuur2022ports}. Official statisticians have tested AIS for port-arrival statistics \cite{vanderwielen2024optimising}, and open terrestrial AIS has been used to map port activity in Tokyo Bay \cite{hutten2026high}.
+
+In the works we read, where AIS-based estimates were checked against official data, the checks concern countries, single port areas, or bulk and tanker trade. The Pacific island study explains 89\% of the variation in official statistics \cite{arslanalp2021tracking}. AIS-derived crude oil exports align with official figures in aggregate, but differ by country and period, partly because of pipelines and transshipment \cite{adland2017ais}. The payload formula was validated for bulk carriers \cite{jia2019estimating} (abstract only read). We found no published validation for Ro-Ro ships or rail ferries, which carry much of the Caspian trade. An ADB review notes that draught-based trade estimates ``may not be more accurate than using port call information'' \cite{adb2023ais}. This is why our headline counts calls rather than tonnes.
+
+\paragraph{Radar vessel detection.} Sentinel-1 is a C-band synthetic aperture radar (SAR) mission whose images are free to use \cite{torres2012sentinel}. Ships appear as bright targets on darker water. The SUMO detector is a pixel-based constant false alarm rate (CFAR) detector with land masking \cite{greidanus2017sumo}, and it has been run over the Sentinel-1 archive of the Mediterranean with its detections matched to AIS \cite{santamaria2017mass} (both abstract only read). Deep-learning detectors have been benchmarked on Sentinel-1 for vessels that do not broadcast AIS \cite{paolo2022xview3}. The global map of Paolo et al.\ combines such detections with AIS but excludes water within 1\,km of shore \cite{paolo2024satellite}, and by our check of its published study area it does not cover the Caspian. Harbours are the hard case: a ship at a quay merges with the quay. Our detector is simpler than these. It compares each image with a per-pixel reference of the same orbit, and we report its precision separately for the open roadstead and the harbour basin.
+
+\paragraph{Measuring the corridor.} Academic studies of the corridor review policy documents and earlier studies \cite{palu2023future}, assess the route with the ADB time-cost-distance method and logistics indices \cite{nurseiit2025attractiveness}, or simulate the capacity of its infrastructure \cite{zhumanov2024trans}. Their abstracts describe no use of ship-tracking data. Two recent works are closest to ours. The Black Sea--Middle Corridor Integration Index is an annual readiness index of eleven component indices over 19 port or route-year observations, and uses no AIS data \cite{gondauri2026bsmcii}. A 2026 policy brief reports author-compiled vessel counts for Caspian ports over a window in April 2026 without naming its data source \cite{wu2026caspianshock}. We found no open, documented, recurring AIS-based or radar-based measure of the Caspian leg. A search of CyberLeninka in Russian found no such work. Google Scholar, eLIBRARY and RePEc could not be searched properly, so this holds less firmly for Russian-language work.
+
+% ---------------------------------------------------------------
+\section{Data}
+\label{sec:data}
+
+\subsection{PortWatch}
+
+We use the PortWatch \texttt{Daily\_Ports\_Data} service for five ports: Baku (port100), Aktau (port16), Turkmenbashi (port1330), and as a comparator the Black Sea ports Poti (port1016) and Batumi (port127). The download of 13 November 2026 holds 2,867 days per port, from 1 January 2019 to 6 November 2026.
+
+PortWatch's dataset description defines a port call as a ship entering a port boundary; its FAQ says arrival at berth \cite{portwatch2026faq}. The exact rule and the port boundaries are not published. Calls with a turnaround under five hours and no change in draught are dropped. PortWatch reports five ship types: container, dry bulk, general cargo, Ro-Ro and tanker. Tonnage is estimated from the change in draught. The AIS data come through the UN Global Platform; the provider is named as exactEarth in the 2021 method paper, Spire in the dataset description and Kpler in the current FAQ \cite{portwatch2026dailyports,arslanalp2021tracking,portwatch2026faq}.
+
+Four exclusions matter here.
+\begin{itemize}
+\item Passenger ships are not one of the five types. The underlying method keeps only trade-carrying vessels \cite{verschuur2021global}.
+\item Kuryk, Kazakhstan's ferry port, is not in the PortWatch port list.
+\item The port polygons are not published.
+\item ``Baku Port'' is the only Azerbaijani entry. Its point (40.2846\,N, 49.7325\,E) lies on the coast between Baku city and Alat, about 43\,km from Alat by our rough estimate. Whether the Alat ferry terminal is inside the polygon is unknown. PortWatch tanker tonnage at ``Baku Port'' is 2.4 to 3.4 times the oil tonnage the Port of Baku reports for 2021, 2023 and 2024 (port rows not re-opened), which points to a wide area.
+\end{itemize}
+
+\subsection{Official figures}
+
+The file \texttt{data/official/official\_figures.csv} holds 517 published numbers with a status, and with the source address and date where known: 433 opened at the source, 77 carried over from earlier notes without being re-opened, and 7 seen only in search snippets.
+
+No regular monthly series measures any of the four ports. The Port of Baku issues cumulative press releases at irregular intervals. The Kazakh port table (Aktau, Kuryk, and the Aktau North Terminal, AMCT) is annual. The only single-month series is Kazakhstan's ``cargo carried by sea transport''. It counts cargo moved by Kazakh carriers, not cargo handled in ports, and most months of 2019 to 2022 are suppressed as confidential. Handled and carried tonnage differ widely: Azerbaijan in 2025 reports 12.96\Mt{} handled in seaports and 9.09\Mt{} carried by sea transport.
+
+The official figures also contradict each other. Kazakh seaports in 2025 handled 7.453\Mt{} in the port table and 8\Mt{} in a press report. For the route total we use the Kazakh ministry series for 2019 to 2025, which has seven consecutive years. Its rows were carried over from earlier notes and not re-opened. The association's chart series, found later, covers the same years and is far lower from 2023; it is not tested here.
+
+\subsection{Sentinel-1}
+
+The Copernicus catalogue lists 79 to 93 Sentinel-1 passes a year over Alat in 2019 to 2026, 53 to 63 over Aktau, 78 to 93 over Kuryk, and 106 to 122 over Turkmenbashi (2026 is a part year). All passes up to 2024 are from Sentinel-1A. In 2026, 34 of the 79 passes over Alat are from Sentinel-1D.
+
+We processed Alat only. Images come from the Microsoft Planetary Computer copy of the ground-range product. It holds 672 of the 703 catalogue passes. The 31 missing passes (10 of them in 2024) were left out. One pass has partial coverage, so 671 are counted. The mean gap between counted passes is 4.3 days and the longest is 18.5 days. At that spacing the passes give snapshots of objects present, not arrivals or cargo.
+
+% ---------------------------------------------------------------
+\section{Method}
+\label{sec:method}
+
+\subsection{Index}
+
+For each day we sum port calls of the four non-tanker types at the three Caspian ports, then sum by calendar month, keeping only complete months. That gives 94 months, January 2019 to October 2026. The headline index is each month divided by the mean month of 2019, times 100. We report the same for Ro-Ro calls, tanker calls, PortWatch dry tonnage, and non-tanker calls at Poti plus Batumi.
+
+The headline counts calls, not tonnes. Because it sums four ship types, it does not change if a ship moves from one of these types to another. It does change with AIS coverage, and when a ship enters or leaves the five types.
+
+To date the Ro-Ro step we fit a single break in the mean, by least squares \cite{bai1997estimation}, to each port's monthly series for January 2021 to December 2023. We use the fit only to date the step, not to test for it.
+
+\subsection{Validation design}
+
+The validation uses no estimates. A cumulative official release becomes an increment only by subtracting the previous release of the same year. A PortWatch value is computed only when PortWatch covers every day of the official period.
+
+The annual comparison pairs eight official series with seven PortWatch measures, 56 pairs, for 2019 to 2025. Port of Baku figures are set against PortWatch Baku; Aktau, Aktau plus AMCT, and all Kazakh seaports against PortWatch Aktau; the route total against the three Caspian ports together. For each pair we report the mean ratio of PortWatch to official where units match, and Pearson and Spearman correlations of levels and of year-on-year changes. Levels have at most seven points and changes at most six.
+
+The monthly test sets the Kazakh single-month series against PortWatch total tonnage at Aktau. For each month after the first 24 available months, we fit a line on all earlier months and forecast the official value from that month's PortWatch value. We compare its root mean squared error (RMSE) with two naive forecasts on the same months: the same month one year earlier, and the previous available month. Judging a forecast against a naive one is standard practice; the mean absolute scaled error, for example, divides by the error of a naive forecast \cite{hyndman2006another}.
+
+\subsection{Radar detector and labels}
+
+Each image is compared with the usual brightness of each pixel, taken as the 25th percentile over passes of the same orbit within a year either side. Pixels that are always bright (quays, cranes, land) are masked. A pixel is a candidate if it is at least 6\,dB brighter than its reference, and touching candidates form a blob. Blobs under about 50\,m or over 300\,m are dropped. Blobs are counted in two zones: the harbour basin and the roadstead outside it (Figure~\ref{fig:zones}). The roadstead zone was drawn before any detection was run. The masking threshold and a rule that removes fixed objects (73 blobs) were set after looking at first detections.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{sar_zones.png}
+\caption{Counting zones at the Port of Baku at Alat: basin (red) and roadstead (orange). Left: mean Sentinel-1 VV image of one relative orbit, all passes 2019 to 2026. Middle: the port close-up. Right: Sentinel-2 true colour, 1 September 2025, same close-up. Contains modified Copernicus Sentinel data.}
+\label{fig:zones}
+\end{figure}
+
+A labelling kit holds 186 detections, enough for a worst-case margin of 7 percentage points, and 128 tiles where the detector found nothing. An AI model (Claude Opus 5.5) labelled all 314 image chips, seeing the images but not the detector's scores. No person has checked these labels beyond a 10-chip spot check: one author had labelled 10 chips before the AI labels existed, and the two agree on 8; on the other 2 the model said ``unsure'' and the author said ``vessel''. The planned blind check of a fixed random 50 chips has not been done. The detections in the kit are stratified by year and zone (138 in the roadstead, 48 in the basin, at least 5 per year and zone), and the shares below are per zone and not reweighted by year. We give 95\% Wilson intervals for them \cite{wilson1927probable}. The intervals describe sampling error only, not errors in the labels.
+
+% ---------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+
+\subsection{The index series}
+
+Non-tanker calls at the three ports rise from 1,442 in 2019 to 2,621 in 2022, fall to 2,215 in 2023 and reach 2,486 in 2025 (Table~\ref{tab:annual}, Figure~\ref{fig:headline}). The index averages 206 over January to October 2026. Its highest month is June 2026 with 309 calls (index 257).
+
+\begin{table}[tbp]
+\centering\small
+\caption{PortWatch annual totals, Baku + Aktau + Turkmenbashi, and the Black Sea comparator.}
+\label{tab:annual}
+\begin{tabular}{lrrrrrr}
+\toprule
+Year & Non-tanker & Index & Ro-Ro & Tanker & Dry tonnage & Poti + Batumi \\
+ & calls & (2019 = 100) & calls & calls & (Mt) & non-tanker calls \\
+\midrule
+2019 & 1,442 & 100.0 & 240 & 1,070 & 1.24 & 1,122 \\
+2020 & 1,666 & 115.5 & 262 & 1,104 & 1.27 & 1,020 \\
+2021 & 2,051 & 142.2 & 244 & 1,052 & 1.73 & 847 \\
+2022 & 2,621 & 181.8 & 946 & 1,481 & 2.25 & 1,006 \\
+2023 & 2,215 & 153.6 & 1,006 & 1,715 & 1.84 & 991 \\
+2024 & 2,298 & 159.4 & 894 & 1,472 & 2.09 & 1,031 \\
+2025 & 2,486 & 172.4 & 778 & 1,293 & 2.28 & 1,114 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.92\linewidth]{index_headline.png}
+\caption{Caspian non-tanker port calls (headline) and Ro-Ro calls, 2019 monthly mean = 100. Sources: Kpler; UN Global Platform; IMF PortWatch (portwatch.imf.org).}
+\label{fig:headline}
+\end{figure}
+
+The Black Sea comparator shows no trend: Poti plus Batumi stay between 847 and 1,122 non-tanker calls a year, though they also rise by 19\% in 2022, against 28\% for the Caspian. That does not make the Caspian rise real growth. The whole rise between 2021 and 2022 comes from Ro-Ro calls: they rise by 702, while all non-tanker calls rise by 570. The other three types together fall by 132.
+
+\subsection{The Ro-Ro step of 2021--22}
+
+Ro-Ro calls at the three ports together rise about fourfold, from 244 in 2021 to 946 in 2022, and the step comes at Baku, Aktau and Turkmenbashi at once (Table~\ref{tab:roro}, Figure~\ref{fig:roro}). The fitted breaks fall within three months of each other: November 2021, December 2021 and January 2022. The mean after the break is 4.5 to 5.9 times the mean before it.
+
+In January to June 2021 the three ports together record 28 Ro-Ro calls, and Aktau none. In July to December 2021 they record 216. So there is a trough in early 2021 and then a rise at all three ports from July 2021. The trough inflates the break ratios. Against 2019, the 2022 totals are about four times higher at each port. Poti shows the same trough: no Ro-Ro calls from December 2020 to March 2021, and 18 in 2021 against 42 in 2020 and 46 in 2022. So the early-2021 gap is not confined to the Caspian; the fourfold level afterwards is.
+
+\begin{table}[tbp]
+\centering\small
+\caption{PortWatch Ro-Ro calls per year, and the fitted break in monthly calls (window January 2021 to December 2023).}
+\label{tab:roro}
+\begin{tabular}{lrrrrrcrrr}
+\toprule
+Port & 2019 & 2020 & 2021 & 2022 & 2023 & Break & Mean & Mean & Ratio \\
+ & & & & & & month & before & after & \\
+\midrule
+Baku & 126 & 131 & 119 & 496 & 518 & 2021-12 & 8.0 & 41.8 & 5.22 \\
+Aktau & 36 & 35 & 28 & 147 & 183 & 2022-01 & 2.3 & 13.8 & 5.89 \\
+Turkmenbashi & 78 & 96 & 97 & 303 & 305 & 2021-11 & 5.5 & 25.0 & 4.55 \\
+All three & 240 & 262 & 244 & 946 & 1,006 & & & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.85\linewidth]{index_roro_step.png}
+\caption{Monthly Ro-Ro, general cargo and tanker calls at each port, 2021 to 2023. Source as Figure~\ref{fig:headline}.}
+\label{fig:roro}
+\end{figure}
+
+Official ferry statistics show growth, but no fourfold rise. From 2021 to 2022 Kuryk's ferry calls rose from 412 to 618 (+50\%) and its cargo by 87\%, while PortWatch Ro-Ro calls at the three ports rose by 288\%. Over a longer span, the Port of Baku handled 44,175 rail wagons in 2019 and 37,300 in 2023, with 33,671 wheeled vehicles in 2019 and 54,200 trucks in 2023 (the Baku rows were carried over and not re-opened). Between 2019 and 2023 PortWatch Ro-Ro calls at Baku went from 126 to 518.
+
+Four checks narrow the question without closing it.
+\begin{itemize}
+\item The step is not global. Summed over every PortWatch port, Ro-Ro calls were 103,762 in 2021 and 106,384 in 2022.
+\item General cargo calls also fall within 2021 to 2023 (ratios of 0.75, 0.59 and 0.46), but the breaks are September 2022 at Baku, July 2021 at Aktau and October 2022 at Turkmenbashi. Only at Aktau does the fall coincide with the return of Ro-Ro calls, so a reclassification of ships is possible there and not shown elsewhere.
+\item Among the 14 ferries we identified, none listed as a Ro-Ro cargo ship was built or delivered in 2021 or 2022. Several ferries remain unidentified.
+\item The Kazakh port table records 2 to 22 ferry calls a year at Aktau in 2019 to 2024. PortWatch records 28 to 183 Ro-Ro calls a year there. What PortWatch classes as Ro-Ro at Aktau is not what the port counts as ferries.
+\end{itemize}
+
+The cause of the step is not confirmed. A change in the AIS data feed for the Caspian, or in how certain ships are classified, is the leading explanation. Real growth is not. PortWatch's FAQ states that expanded AIS receiver coverage in November 2021 caused a sustained increase in recorded port calls at Gwangyang in Korea and in Malacca Strait transits \cite{portwatch2026faq}. It names no Caspian port. So coverage steps of this kind are documented in the data, but the timing here fits only partly: Ro-Ro calls at the three ports rise from 2 a month in March to May 2021 to 20 in July and 33 in August, before November, and reach 61 in December. All calls average 250 a month in January to October 2021 and 306 in November 2021 to February 2022. Global Fishing Watch reports that its own change of AIS vendor changed its data volume, and warns against comparing before and after \cite{gfw2026vendor}. Until this is settled, Ro-Ro calls before 2022 should not be compared with later ones.
+
+\subsection{Where PortWatch agrees with official data, and where it does not}
+
+\begin{table}[tbp]
+\centering\small
+\caption{PortWatch against official annual figures, 2019 to 2025. Ratio = PortWatch divided by official, mean over years. $r$ = Pearson correlation; yoy = year on year; $n$ in brackets. Spearman correlations and the other 44 pairs are in \texttt{outputs/tables/validate\_summary.csv}.}
+\label{tab:validation}
+\footnotesize
+\begin{tabular}{llrrr}
+\toprule
+Official series & PortWatch measure & Mean ratio & $r$, levels ($n$) & $r$, yoy ($n$) \\
+\midrule
+Aktau + AMCT vessel calls & All calls, Aktau & 0.97 & 0.90 (7) & $-0.16$ (6) \\
+Aktau vessel calls & All calls, Aktau & 1.28 & 0.87 (7) & $-0.39$ (6) \\
+Aktau oil tonnes & Tanker tonnes, Aktau & 0.97 & 0.85 (6) & 0.89 (5) \\
+Aktau oil tonnes & Tanker calls, Aktau & & 0.999 (6) & 0.99 (5) \\
+Aktau total tonnes & All tonnes, Aktau & 0.82 & 0.75 (7) & 0.53 (6) \\
+Aktau + AMCT total tonnes$^{*}$ & All tonnes, Aktau & 0.67 & 0.57 (7) & 0.16 (6) \\
+Kazakh seaports total tonnes & All tonnes, Aktau & 0.51 & 0.81 (7) & 0.59 (6) \\
+Port of Baku total tonnes & Dry tonnes, Baku & 0.12 & 0.90 (7) & 0.30 (6) \\
+Port of Baku total tonnes & All tonnes, Baku & 0.77 & 0.66 (7) & 0.50 (6) \\
+Route total (Kazakh ministry) & Non-tanker calls, three ports & & 0.60 (7) & $-0.05$ (6) \\
+Route total (Kazakh ministry) & Ro-Ro calls, three ports & & 0.73 (7) & 0.79 (6) \\
+Route total (Kazakh ministry) & Tanker calls, three ports & & 0.60 (7) & 0.80 (6) \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize $^{*}$ With the 2020 Kuryk and AMCT tonnages exchanged (Section~\ref{sec:q2}): 0.69, 0.65 (7), 0.20 (6).
+\end{table}
+
+\paragraph{Agreement.} Vessel calls at Aktau match when the separate AMCT terminal is added to the port company's count (Table~\ref{tab:validation}, Figure~\ref{fig:validation}, left). PortWatch records 1,383 calls in 2025 against 1,394 official. The ratio is between 0.98 and 1.04 in six of seven years; the exception is 2020, with 748 against 983. This suggests that the PortWatch polygon for Aktau includes AMCT, which we cannot confirm. The year-on-year changes do not correlate, so the agreement is in level only. Adding AMCT improves the match for calls and worsens it for tonnage (0.67 against 0.82).
+
+Oil at Aktau also matches. PortWatch tanker tonnage is between 0.97 and 1.08 of the port's oil tonnage in 2019 to 2023, and 0.77 in 2024. Tanker calls follow oil tonnage more closely than any other pair, in levels and in year-on-year changes.
+
+\paragraph{Disagreement.} PortWatch total tonnage at Aktau is 0.82 of the official total on average and 0.71 in 2025. Against all Kazakh seaports, PortWatch at Aktau sees about half the tonnage, because Kuryk and other terminals are outside it.
+
+At Baku, PortWatch dry tonnage is 12\% of the port's official total on average (six of the seven port totals were not re-opened). The ratio for all tonnage looks better (0.77), but for the wrong reason: PortWatch tanker tonnage is far above the port's own oil figure (Section~\ref{sec:data}), while ferry cargo is largely missing. The World Bank reports that of 6.3\Mt{} handled at Alat in 2022, 2.5\Mt{} moved on railcars and 1.1\Mt{} in trucks and trailers \cite{worldbank2023middle}. PortWatch shows 1.03\Mt{} of dry cargo at Baku that year. For 2024 the port reports 1.044\Mt{} of ``dry cargo'' as a separate item, and PortWatch dry tonnage is 1.00\Mt{} (row not re-opened). For January to September 2026 the port reports 1.73\Mt{} and PortWatch shows 1.02\Mt, a ratio of 0.59. So the reading that PortWatch sees conventional dry cargo at Baku and misses only ferry cargo holds in one of the two periods available. It is not established.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{validation_annual.png}
+\caption{Left: PortWatch divided by the official figure, by year, for four pairs of Table~\ref{tab:validation}; six of the seven Port of Baku totals were carried over and not re-opened. Right: year-on-year change of the Kazakh ministry's route total (tonnes) and of the headline (non-tanker calls at the three ports); the correlation is $-0.05$ ($n=6$). Drawn by \texttt{research/paper\_figures.py} from \texttt{outputs/tables/validate\_annual.csv}.}
+\label{fig:validation}
+\end{figure}
+
+\subsection{Question 1: which official total does the index track?}
+
+None closely. Against the Kazakh ministry's route total, the headline index has a level correlation of 0.60 ($n=7$) and a year-on-year correlation of $-0.05$ ($n=6$). The route total rose by 153\% in 2022 and 86\% in 2023. Non-tanker calls rose by 28\% and then fell by 15\% (Figure~\ref{fig:validation}, right).
+
+Two PortWatch measures do correlate with the route total year on year: Ro-Ro calls (0.79) and tanker calls (0.80), both with $n=6$. We rely on neither. Both rest on 2022, the year of the suspect step: without that year's change the correlations are 0.27 and 0.42 ($n=5$), and the headline's is $-0.90$. Both are also among 56 pairs tested on five or six points, so some high values are expected by chance.
+
+What the index does follow is weaker and more local. Non-tanker calls at Baku rise with the Port of Baku's total tonnage in levels (0.88, $n=7$), which mostly reflects two rising series; year on year the correlation is 0.30. The parts of PortWatch that agree with official data are outside the headline index: tanker activity and total call counts at Aktau.
+
+\subsection{Question 3: does the index predict official releases out of sample?}
+
+No. The monthly test covers the 54 months between February 2019 and October 2026 for which Kazakhstan publishes a single-month figure. Over these months the level correlation between PortWatch tonnage at Aktau and the official series is 0.06. The year-on-year correlation is $-0.23$ ($n=34$).
+
+The out-of-sample test has 30 months, May 2024 to October 2026 (Figure~\ref{fig:monthly}). The RMSE is 144.1 thousand tonnes for the PortWatch regression, 104.1 thousand tonnes for the same month a year earlier, and 54.9 thousand tonnes for the previous available month. The PortWatch forecast is below the official value in all 30 months.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{validation_monthly.png}
+\caption{Monthly out-of-sample test: Kazakhstan's single-month ``cargo carried by sea transport'' and the three forecasts. Drawn by \texttt{research/paper\_figures.py} from \texttt{outputs/tables/validate\_monthly.csv}.}
+\label{fig:monthly}
+\end{figure}
+
+The target is a poor match. It counts cargo carried by Kazakh carriers wherever it is loaded, not cargo handled at Aktau. Only 10 of the 48 months of 2019 to 2022 are published, so the regression starts from few early points. The official series also changes level: its monthly values are 34 to 90 thousand tonnes in 2019 and 228 to 467 thousand tonnes in 2025. PortWatch tonnage at Aktau shows no such rise.
+
+So the test fails. It cannot tell us whether PortWatch would predict a port-based monthly series, because none exists for these ports.
+
+\subsection{Question 2: how much does AIS-based data miss?}
+\label{sec:q2}
+
+We cannot give one number. Beyond the ferry cargo missing at Baku, we can name two gaps, and say why the radar check does not yet measure them.
+
+\paragraph{Kuryk.} In the Kazakh port table Kuryk handles 18\% to 30\% of all Kazakh seaport cargo in 2019 to 2025 and receives 412 to 700 ferry calls a year in 2019 to 2024 (Table~\ref{tab:kuryk}). The 2020 share is 12.5\% as published, but the 2020 tonnages for Kuryk and AMCT appear transposed in the source table. Ferry cargo for all Kazakh ports equals Kuryk's tonnage within 0.5\% in every other year and equals AMCT's in 2020, and an Aktau port report gives AMCT 667\,kt for 2020. Read that way the 2020 share is 29.2\%. A second document supports this: the Aktau port's strategy for 2022 to 2032 gives Kuryk 1,560\,kt and the North Terminal 667\,kt in a table whose other rows carry 2020 values, though its caption says 2021 \cite{aktau2022strategy}. It may draw on the same administration data, so it is not independent proof. The World Bank describes Kuryk's cargo as mainly trucks and rail wagons on the route to Baku \cite{worldbank2023middle}. Yet in 2019 to 2021 PortWatch records only 119 to 131 Ro-Ro calls a year at Baku, well below the ferry calls that Kuryk alone reports.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Kuryk in the Kazakh port table, and PortWatch Ro-Ro calls.}
+\label{tab:kuryk}
+\begin{tabular}{lrrrrrr}
+\toprule
+Year & Kuryk & Kazakh & Kuryk & Kuryk & PortWatch & PortWatch \\
+ & cargo (kt) & seaports (kt) & share & ferry calls & Ro-Ro, Baku & Ro-Ro, three ports \\
+\midrule
+2019 & 1,369.8 & 5,895.0 & 23.2\% & 487 & 126 & 240 \\
+2020 & 666.8$^{*}$ & 5,338.8 & 12.5\%$^{*}$ & 542 & 131 & 262 \\
+2021 & 974.5 & 5,456.2 & 17.9\% & 412 & 119 & 244 \\
+2022 & 1,824.0 & 6,493.6 & 28.1\% & 618 & 496 & 946 \\
+2023 & 2,115.0 & 7,168.0 & 29.5\% & 700 & 518 & 1,006 \\
+2024 & 1,931.9 & 7,333.1 & 26.3\% & 645 & 479 & 894 \\
+2025 & 1,719.0 & 7,453.0 & 23.1\% & n.p. & 410 & 778 \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\footnotesize $^{*}$ As published. If Kuryk and AMCT are transposed in 2020: 1,560.1\,kt and 29.2\%. n.p.: not published.
+\end{table}
+
+\paragraph{Ferries that broadcast as passenger ships.} We identified 14 Caspian ferries on public vessel-tracking pages (listed in \texttt{research/FERRY\_FLEET.md}). Eight are listed on VesselFinder as ``Passenger/Ro-Ro Cargo Ship'', and five of those broadcast the AIS type ``Passenger ship''. Six are listed as ``Ro-Ro Cargo Ship'', and five of those broadcast ``Cargo ship''. The World Bank counts 15 rail ferries, 2 Ro-Ro ships and 2 Ro-Pax ships in the fleet of the Azerbaijan Caspian Shipping Company alone \cite{worldbank2023middle}, and 12 of our 14 are attributed to that fleet (operator assumed for three), so our list is incomplete. A later search found two more ships of that company (Mingachevir, listed as Ro-Ro cargo, and Ordubad, passenger/Ro-Ro); they are not in these counts. PortWatch has no passenger category, so the passenger/Ro-Ro ferries are likely outside its Ro-Ro count. Which field PortWatch classifies by is not documented, so this is unverified.
+
+\paragraph{Radar at Alat.} The detector counted 3,333 objects in 671 passes: 845 in the basin and 2,488 in the roadstead (Table~\ref{tab:sar}, Figure~\ref{fig:sar}). By the AI labels, which no person has checked beyond the spot check (Section~\ref{sec:method}), 131 of the 132 decided roadstead detections are vessels (99\%, 95\% interval 96\% to 99.9\%; 6 unsure), but only 7 of 34 in the basin (21\%, 10\% to 37\%; 14 unsure), where most sit on piers and quays. Tiles without a detection held no vessel in the roadstead (0 of 64) and a clear one in 2 of 64 in the basin (5 more possible). By these labels the roadstead count is close to a vessel count; the basin count is not.
+
+\begin{table}[tbp]
+\centering\small
+\caption{Sentinel-1 detections per counted pass at Alat, and PortWatch calls at ``Baku Port''.}
+\label{tab:sar}
+\begin{tabular}{lrrrrr}
+\toprule
+Year & Counted & Basin, & Roadstead, & Total, & PortWatch calls, \\
+ & passes & mean per pass & mean per pass & mean per pass & all types \\
+\midrule
+2019 & 83 & 1.07 & 1.98 & 3.05 & 1,044 \\
+2020 & 81 & 1.04 & 2.51 & 3.54 & 1,217 \\
+2021 & 86 & 1.08 & 4.95 & 6.03 & 1,399 \\
+2022 & 84 & 1.46 & 5.29 & 6.75 & 2,136 \\
+2023 & 86 & 1.12 & 1.97 & 3.08 & 2,036 \\
+2024 & 80 & 1.50 & 2.89 & 4.39 & 1,897 \\
+2025 & 92 & 1.51 & 3.59 & 5.10 & 1,815 \\
+2026 & 79 (to 10 Nov) & 1.28 & 6.59 & 7.87 & 1,983 (Jan to Oct) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.92\linewidth]{sar_timeseries.png}
+\caption{Bright transient blobs per Sentinel-1 pass at Alat, by zone. Detector output; the labels in the text are from an AI model and not checked by a person. Not a traffic measurement.}
+\label{fig:sar}
+\end{figure}
+
+The roadstead count does not follow sea state (Spearman $-0.08$ and $-0.03$ for the two polarisations, $n=671$). The basin count rises slightly with it ($+0.12$ and $+0.14$). In the basin a ship alongside a quay mostly merges with the quay, so the basin count is not the number of ships in port. In 2026 the Sentinel-1A passes (January to June) average 7.9 roadstead blobs and the Sentinel-1D passes (from 25 June) 4.9. Only one Sentinel-1A pass falls after the first Sentinel-1D pass, so a sensor effect cannot be tested. Sentinel-1A's own monthly mean rose from 2.7 in January to 11.7 in June, so at least part of the difference is a change over time.
+
+Month by month over 94 months, the total blob count per pass correlates with PortWatch calls at ``Baku Port'' at 0.41 for all calls, 0.53 for non-tanker calls, 0.23 for Ro-Ro calls and 0.14 for tanker calls. We report this only as a weak aggregate comparison. The labels are from an AI model, the basin blobs are mostly not ships, the two areas differ, and one series counts objects present while the other counts calls. The yearly shapes also differ: the roadstead mean falls from 5.29 in 2022 to 1.97 in 2023, while PortWatch calls barely change (2,136 and 2,036).
+
+% ---------------------------------------------------------------
+\section{Limits}
+\label{sec:limits}
+
+\begin{itemize}
+\item \textbf{Unpublished polygons.} Every port comparison assumes areas we cannot see, including whether Alat lies inside ``Baku Port''.
+\item \textbf{The Ro-Ro break.} Ro-Ro calls before and after the 2021--22 step are not comparable, the cause is not confirmed, and the headline index inherits this.
+\item \textbf{Missing traffic.} Kuryk is not in the index. Eight of the 14 identified ferries are listed as passenger/Ro-Ro ships and may be outside PortWatch (unverified).
+\item \textbf{Short samples.} Annual correlations rest on $n$ of 5 to 7, the two that look good depend on one year, and 56 pairs were tested.
+\item \textbf{Radar.} Labels are from an AI model, not checked by a person beyond a 10-chip spot check, and weak in the basin (ships at quays). Alat only, a platform change in 2026, and passes missing at the source unevenly by year. Some detector settings were chosen after looking at first detections.
+\item \textbf{Official series.} They contradict each other, mix handled and carried cargo and use different port definitions. One pair of 2020 figures appears transposed. Turkmenbashi has one official year: in 2025 PortWatch tonnage there is 9\% of the official total.
+\item \textbf{Revisions and search.} PortWatch adds ports and refines boundaries \cite{arslanalp2026nowcasting}; our results describe the download of 13 November 2026. No proper pass through Google Scholar, eLIBRARY or RePEc was possible.
+\end{itemize}
+
+% ---------------------------------------------------------------
+\section{What would make this work}
+\label{sec:next}
+
+\begin{itemize}
+\item \textbf{A human check of the radar labels.} A person labels the fixed random 50 chips blind; agreement decides whether the AI labels stand.
+\item \textbf{Answers from PortWatch.} The polygons for Baku and Aktau, the mapping from ship types to the five categories, and whether the AIS feed for the Caspian changed in 2021 or 2022. Nothing has been sent yet.
+\item \textbf{Differenced official releases.} Collecting each cumulative Port of Baku and Azerbaijani seaport release and differencing consecutive ones would, in time, give the port-based target that the present test lacks.
+\item \textbf{Kuryk from radar.} Kuryk has about as many Sentinel-1 passes as Alat, so a labelled detector could observe the port that AIS-based data leave out.
+\end{itemize}
+
+Until at least the first two exist, the index should be read as a count of PortWatch port calls, not as a measure of corridor cargo.
+
+% ---------------------------------------------------------------
+\section*{Data and code availability}
+
+All code, the official figures file with its source addresses, the output tables and the figures are in a public repository, \url{https://github.com/aghasalim/middle-corridor-monitor} (code under the MIT licence; text, figures and tables under CC BY 4.0). \texttt{python -m mcm.build} rebuilds the index and validation tables from a fresh PortWatch download. Every number in this paper is traced to a file in \texttt{paper/NUMBERS.md}. The numbers can be recomputed from the repository, except that the source PDFs of the official figures, the radar image cache and the vessel-tracking pages are not stored in it.
+
+\section*{Author contributions}
+
+Aghasalim Mustafazada: Sentinel-1 radar detection, the labelling kit, the project page and the figures. Teymur Eyvazov: the index, the statistics and the validation against official figures. Both authors are responsible for the paper.
+
+\section*{Use of AI tools}
+
+Code, literature search and the earlier Markdown draft of this paper were done with an AI coding assistant (Claude, Anthropic) under the authors' direction. The radar sample was labelled by an AI model (Claude Opus 5.5; Section~\ref{sec:method}), and those labels have not been checked by a person beyond a 10-chip spot check. This LaTeX version was drafted with an AI writing workflow modelled on the multi-agent PaperOrchestra pipeline \cite{song2026paperorchestra}, under the authors' direction. Its five steps were carried out in turn by the same AI coding assistant: an outline from the repository's notes, figures drawn by scripts from the repository's tables, a literature review in which every reference was checked against Semantic Scholar, Crossref or the publisher's page, section writing, and a simulated referee review followed by revisions. The steps were run by the assistant itself; no code from community implementations of PaperOrchestra was run. The model that labelled the radar sample and the writing assistant are from the same model family, which is one more reason the labels need a human check. The workflow changed wording, structure, related work and figures, not results or conclusions. The authors are responsible for the content. This statement follows the disclosure policies of arXiv and SSRN \cite{arxiv2023genai,ssrn2026genai}.
+
+\small
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
