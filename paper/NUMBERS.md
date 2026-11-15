@@ -364,3 +364,15 @@ All from `outputs/tables/sar_label_eval.csv` (written by `research/sar_label_eva
 | 5.6 | "a clear one in 2 of 64 in the basin (5 more possible)" | `sar_label_eval.csv` | basin missed-vessel row: `yes` 2, `unsure` 5, `n` 64 | copied |
 | 4.3 | "a 10-chip spot check" (paper gives no agreement figure; detail in SAR_METHOD 9.1) | `outputs/tables/sar_label_agreement.csv` | detections `n_labelled_by_human` 5, `agreement` 0.6 (3 of 5; the 2 others are `model_is_vessel` unsure, `is_vessel` yes in `label_sample.csv` S0006, S0010); empty tiles 5, `agreement` 1.0 | derived: 3 + 5 = 8 |
 | 7 | "a fixed random 50 chips" | `data/sar/model_labels.csv` | `human_check` = 1 | count |
+
+## LaTeX version (`paper/latex/main.tex`, 15 November 2026)
+
+The LaTeX version carries the numbers above unchanged. New in it:
+
+| Section | Claim as written | Source | Row / column | How |
+|---|---|---|---|---|
+| 4.3 | spot check: "the two agree on 8; on the other 2 the model said unsure and the author said vessel" | `outputs/tables/sar_label_agreement.csv`; `data/sar/label_sample.csv` | detections 3 of 5 agree (S0006, S0010: model unsure, person yes); empty tiles 5 of 5 | derived: 3 + 5 = 8 |
+| 4.3 | kit "stratified by year and zone (138 in the roadstead, 48 in the basin, at least 5 per year and zone)", "not reweighted by year" | `research/SAR_METHOD.md` section 9; `research/sar_label_eval.py` (no weights) | `n` 138 and 48 in `sar_label_eval.csv` | note; copied |
+| Table 3 caption | "the other 44 pairs" | `outputs/tables/validate_summary.csv` | 56 rows less the 12 in Table 3 | derived |
+| Figure 5 caption | Sentinel-2 image of "1 September 2025" | `outputs/figures/sar_zones.png` (panel title, drawn by `src/mcm/sar/report.py`) | | copied |
+| Figures 3 and 4 | yearly ratios and year-on-year changes; the 30 out-of-sample months and three forecasts | `research/paper_figures.py` from `outputs/tables/validate_annual.csv` and `validate_monthly.csv` | rows as in Table 3 rows 1, 3, 5, 8 and row 126; `fc_*` columns | plotted, no new figure in the text |

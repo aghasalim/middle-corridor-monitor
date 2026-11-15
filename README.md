@@ -23,7 +23,7 @@ official figures have no independent check. This project tests whether open data
 
 ## What we found so far
 
-The results are mostly negative. The numbers below are from `paper/paper.pdf`; where each comes from is in
+The results are mostly negative. The numbers below are from the paper, `paper/latex/main.pdf` (16 pages); where each comes from is in
 `paper/NUMBERS.md`.
 
 | Question | Result |
@@ -34,7 +34,7 @@ The results are mostly negative. The numbers below are from `paper/paper.pdf`; w
 | How much dry cargo does it see at Baku? | About 12% of the official total. |
 | Is the fourfold rise in Ro-Ro calls from 2021 to 2022 real? | Not on the evidence. Official ferry statistics for Kuryk show +50% in calls and +87% in tonnes. The cause is not confirmed. |
 | What is missing? | Kuryk, with 18% to 30% of Kazakh seaport cargo (one year is in doubt), is not in PortWatch. |
-| Does radar confirm the counts? | Not yet. 3,333 objects in 671 passes at Alat, none labelled by hand. |
+| Does radar confirm the counts? | Not yet. 3,333 objects in 671 passes at Alat. By AI labels of a sample, 131 of 132 decided detections in the roadstead are vessels, but only 7 of 34 in the harbour basin. No person has checked the labels beyond a 10-image spot check. |
 
 ![Ro-Ro calls per port, 2021 to 2023: the step appears at all three Caspian ports](outputs/figures/index_roro_step.png)
 
@@ -45,7 +45,7 @@ The results are mostly negative. The numbers below are from `paper/paper.pdf`; w
 ## Who did what
 
 - Aghasalim Mustafazada (third-year bachelor student, Creative Technologies & AI, Howest, Belgium):
-  Sentinel-1 radar detection, hand-labelling kit, project page, images and video.
+  Sentinel-1 radar detection, labelling kit, project page, images and video.
 - Teymur Eyvazov (University of Massachusetts Boston, USA): index, statistics, validation against official figures.
 
 ## Purpose
@@ -59,7 +59,7 @@ mean = 100. Ro-Ro calls, tanker calls, PortWatch dry tonnage and a Black Sea com
 ![Caspian non-tanker port-call index and Ro-Ro call index, 2019 monthly mean = 100](outputs/figures/index_headline.png)
 
 The index is a count of ship calls, not of cargo. In our checks it does **not** track the official
-Trans-Caspian route total year on year (see Limitations and `paper/paper.pdf`).
+Trans-Caspian route total year on year (see Limitations and `paper/latex/main.pdf`).
 
 ![Port of Baku at Alat: mean Sentinel-1 radar image, port close-up and Sentinel-2 true colour, with the two counting zones](outputs/figures/sar_zones.png)
 
@@ -86,8 +86,12 @@ python -m venv .venv
 .venv/Scripts/python -m mcm.build --offline  # reuses data/portwatch/
 .venv/Scripts/python -m pytest -q
 .venv/Scripts/python research/paper_checks.py   # extra numbers quoted in the paper
-.venv/Scripts/python paper/build_pdf.py          # paper.md -> paper.pdf (needs Chrome)
+.venv/Scripts/python research/paper_figures.py   # the two validation figures used in the paper
+.venv/Scripts/python paper/build_pdf.py          # paper.md -> paper.pdf, the earlier 8-page version (needs Chrome)
 ```
+
+The LaTeX version for arXiv is in `paper/latex/` (`main.tex`, `references.bib`, `figures/`). Build it with
+`pdflatex main && bibtex main && pdflatex main && pdflatex main`; arXiv needs the generated `main.bbl` uploaded too.
 
 (On macOS/Linux use `.venv/bin/python`.) The build fails loudly if a port's download is short,
 has a duplicated day or a missing day.
@@ -102,9 +106,12 @@ The video and the title image are rebuilt with `research/video.py` (needs ffmpeg
   dry-cargo tonnage at Baku is several times below official figures.
 - Ro-Ro calls step up four- to sixfold between 2021 and 2022 at all three Caspian ports at once.
   This is not explained (see `outputs/tables/index_roro_step.csv` and `outputs/figures/index_roro_step.png`).
-- Sentinel-1 radar detections at Alat exist (`research/SAR_METHOD.md`, `outputs/tables/sar_*.csv`) but are
-  unlabelled bright blobs, not confirmed ships. Precision and recall are unknown until the sample in
-  `data/sar/label_sample.csv` is labelled by hand.
+- Sentinel-1 radar detections at Alat (`research/SAR_METHOD.md`, `outputs/tables/sar_*.csv`) are labelled
+  only by an AI model (Claude Opus 5.5; `data/sar/model_labels.csv`, `outputs/tables/sar_label_eval.csv`).
+  By those labels, 131 of 132 decided roadstead detections are vessels and 7 of 34 in the harbour basin, where
+  most sit on piers and quays. No person has checked the labels beyond a 10-image spot check; the blind check of
+  a fixed random 50 chips (`research/label_tool.py --check`) has not been done. Until it is, the counts are not
+  a validated ship count.
 - In checks against official figures the index does not track the official Trans-Caspian route total year on
   year and does not forecast Kazakhstan's monthly sea-cargo series (`outputs/tables/validate_*.csv`).
 - Port calls are counted, not tonnes or containers; a call by a large ship and a small one count the same.

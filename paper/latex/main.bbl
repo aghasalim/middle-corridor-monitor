@@ -1,0 +1,364 @@
+\begin{thebibliography}{45}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Adland et~al.(2017)Adland, Jia, and Strandenes]{adland2017ais}
+Roar Adland, Haiying Jia, and Siri~P. Strandenes.
+\newblock Are {AIS}-based trade volume estimates reliable? {The} case of crude
+  oil exports.
+\newblock \emph{Maritime Policy \& Management}, 44\penalty0 (5):\penalty0
+  657--665, 2017.
+\newblock \doi{10.1080/03088839.2017.1309470}.
+\newblock Abstract only.
+
+\bibitem[{Aktau International Sea Trade Port}(2022)]{aktau2022strategy}
+{Aktau International Sea Trade Port}.
+\newblock Development strategy 2022 to 2032 (in {Russian}), 2022.
+\newblock URL
+  \url{https://portaktau.kz/wp-content/uploads/2026/02/strategiya-razvitiya-amtp-2022-2032.pdf}.
+\newblock Page 7. Opened 14 November 2026.
+
+\bibitem[Arslanalp et~al.(2019)Arslanalp, Marini, and
+  Tumbarello]{arslanalp2019big}
+Serkan Arslanalp, Marco Marini, and Patrizia Tumbarello.
+\newblock Big data on vessel traffic: Nowcasting trade flows in real time.
+\newblock IMF Working Paper 19/275, International Monetary Fund, 2019.
+
+\bibitem[Arslanalp et~al.(2021)Arslanalp, Koepke, and
+  Verschuur]{arslanalp2021tracking}
+Serkan Arslanalp, Robin Koepke, and Jasper Verschuur.
+\newblock Tracking trade from space: An application to {Pacific} island
+  countries.
+\newblock IMF Working Paper 21/225, International Monetary Fund, 2021.
+
+\bibitem[Arslanalp et~al.(2025)Arslanalp, Choi, Kamali, Koepke, McKetty, Ruta,
+  Saraiva, Sozzi, and Verschuur]{arslanalp2025nowcasting}
+Serkan Arslanalp, Seung~Mo Choi, Parisa Kamali, Robin Koepke, Matthew McKetty,
+  Michele Ruta, Mario Saraiva, Alessandra Sozzi, and Jasper Verschuur.
+\newblock Nowcasting global trade from space.
+\newblock IMF Working Paper 25/93, International Monetary Fund, 2025.
+
+\bibitem[Arslanalp et~al.(2026)Arslanalp, Exton, Gao, Saraiva, Kamali, Sozzi,
+  and Verschuur]{arslanalp2026nowcasting}
+Serkan Arslanalp, Oliver Exton, Chang Gao, Mario Saraiva, Parisa Kamali,
+  Alessandra Sozzi, and Jasper Verschuur.
+\newblock Nowcasting country-level trade estimates using {IMF} {PortWatch}.
+\newblock IMF Working Paper 26/99, International Monetary Fund, 2026.
+
+\bibitem[{arXiv}(2023)]{arxiv2023genai}
+{arXiv}.
+\newblock {arXiv} announces new policy on {ChatGPT} and similar tools.
+\newblock arXiv blog, 2023.
+\newblock URL
+  \url{https://blog.arxiv.org/2023/01/31/arxiv-announces-new-policy-on-chatgpt-and-similar-tools}.
+
+\bibitem[{Asian Development Bank}(2024)]{adb2024tradeflows}
+{Asian Development Bank}.
+\newblock Trade flows and transport routes in the {CAREC} region amid external
+  shocks.
+\newblock Carec senior officials' meeting paper, Asian Development Bank, 2024.
+\newblock URL
+  \url{https://carecprogram.org/uploads/ADB-Middle-Corridor-Paper-ENG_Final-SOM2024.pdf}.
+
+\bibitem[Bai(1997)]{bai1997estimation}
+Jushan Bai.
+\newblock Estimation of a change point in multiple regression models.
+\newblock \emph{Review of Economics and Statistics}, 79\penalty0 (4):\penalty0
+  551--563, 1997.
+\newblock \doi{10.1162/003465397557132}.
+\newblock Abstract only.
+
+\bibitem[{CAREC Secretariat}(2022)]{carec2022cpmm}
+{CAREC Secretariat}.
+\newblock {CAREC} corridor performance measurement and monitoring annual report
+  2022.
+\newblock Technical report, CAREC Program, 2022.
+\newblock URL
+  \url{https://cpmm.carecprogram.org/uploads/CPMM_Annual_Report_2022.pdf}.
+
+\bibitem[{CAREC Secretariat} and {CAREC Institute}(2024)]{carec2024cpmm}
+{CAREC Secretariat} and {CAREC Institute}.
+\newblock {CAREC} corridor performance measurement and monitoring annual report
+  2024.
+\newblock Technical report, CAREC Program and CAREC Institute, 2024.
+\newblock URL
+  \url{https://www.carecinstitute.org/wp-content/uploads/2026/07/CPMM-Annual-Report-2024_8th.pdf}.
+\newblock File released July 2026.
+
+\bibitem[Cerdeiro et~al.(2020)Cerdeiro, Komaromi, Liu, and
+  Saeed]{cerdeiro2020world}
+Diego Cerdeiro, Andras Komaromi, Yang Liu, and Mamoon Saeed.
+\newblock World seaborne trade in real time: A proof of concept for building
+  {AIS}-based nowcasts from scratch.
+\newblock IMF Working Paper 20/57, International Monetary Fund, 2020.
+
+\bibitem[{European Bank for Reconstruction and
+  Development}(2023)]{ebrd2023sustainable}
+{European Bank for Reconstruction and Development}.
+\newblock Sustainable transport connections between {Europe} and {Central
+  Asia}.
+\newblock Technical report, EBRD, 2023.
+\newblock URL
+  \url{https://transport.ec.europa.eu/document/download/4360ea36-a75a-47e5-8b6f-84a9bde66a02_en?filename=Sustainable_transport_connections_between_Europe_and_Central_Asia.pdf}.
+
+\bibitem[{Global Fishing Watch}(2026)]{gfw2026vendor}
+{Global Fishing Watch}.
+\newblock Data vendor transition.
+\newblock Platform update, 2026.
+\newblock URL
+  \url{https://globalfishingwatch.org/platform-update/data-vendor-transition/}.
+
+\bibitem[Gondauri and Guramishvili(2026)]{gondauri2026bsmcii}
+Davit Gondauri and Guram Guramishvili.
+\newblock {Black Sea--Middle Corridor Integration Index (BSMCII)}: Dataset,
+  component indices, econometric panel, and replication package for measuring
+  multimodal corridor readiness.
+\newblock Zenodo, 2026.
+
+\bibitem[Greidanus et~al.(2017)Greidanus, Alvarez, Santamaria, Thoorens,
+  Kourti, and Argentieri]{greidanus2017sumo}
+Harm Greidanus, Marlene Alvarez, Carlos Santamaria, Fran{\c{c}}ois-Xavier
+  Thoorens, Naouma Kourti, and Pietro Argentieri.
+\newblock The {SUMO} ship detector algorithm for satellite radar images.
+\newblock \emph{Remote Sensing}, 9\penalty0 (3):\penalty0 246, 2017.
+\newblock \doi{10.3390/rs9030246}.
+\newblock Abstract only.
+
+\bibitem[H{\"u}tten(2026)]{hutten2026high}
+Moritz H{\"u}tten.
+\newblock High-resolution mapping of port dynamics from open-access {AIS} data
+  in {Tokyo Bay}.
+\newblock \emph{Geomatics}, 6\penalty0 (1):\penalty0 10, 2026.
+\newblock \doi{10.3390/geomatics6010010}.
+\newblock Abstract only.
+
+\bibitem[Hyndman and Koehler(2006)]{hyndman2006another}
+Rob~J. Hyndman and Anne~B. Koehler.
+\newblock Another look at measures of forecast accuracy.
+\newblock \emph{International Journal of Forecasting}, 22\penalty0
+  (4):\penalty0 679--688, 2006.
+\newblock \doi{10.1016/j.ijforecast.2006.03.001}.
+\newblock Abstract only.
+
+\bibitem[{IMF PortWatch}({\natexlab{a}})]{portwatch2026dailyports}
+{IMF PortWatch}.
+\newblock {Daily\_Ports\_Data} ({ArcGIS} item description and dataset).
+\newblock ArcGIS Online item 83b1bbc7b3354c5fb1f40673bb8f852e, {\natexlab{a}}.
+\newblock URL
+  \url{https://www.arcgis.com/home/item.html?id=83b1bbc7b3354c5fb1f40673bb8f852e}.
+\newblock Sources: Kpler; UN Global Platform; IMF PortWatch
+  (portwatch.imf.org). Accessed 13 November 2026.
+
+\bibitem[{IMF PortWatch}({\natexlab{b}})]{portwatch2026faq}
+{IMF PortWatch}.
+\newblock Frequently asked questions.
+\newblock ArcGIS item 640b69a4a96f41a6937cb4d2984f26da, modified 21 October
+  2026, {\natexlab{b}}.
+\newblock URL \url{https://portwatch.imf.org/pages/faqs}.
+\newblock Opened 14 November 2026.
+
+\bibitem[Jia et~al.(2019)Jia, Prakash, and Smith]{jia2019estimating}
+Haiying Jia, Vishnu Prakash, and Tristan Smith.
+\newblock Estimating vessel payloads in bulk shipping using {AIS} data.
+\newblock \emph{International Journal of Shipping and Transport Logistics},
+  11\penalty0 (1):\penalty0 25--40, 2019.
+\newblock \doi{10.1504/IJSTL.2019.096864}.
+\newblock Abstract only.
+
+\bibitem[Kim et~al.(2023)Kim, Basu~Das, Pundit, Magnata, Mariasingham, and
+  Chico]{adb2023ais}
+Kijin Kim, Sanchita Basu~Das, Madhavi Pundit, Paolo Magnata, Mahinthan
+  Mariasingham, and Cherryl Chico.
+\newblock Economic applicability of the {Automatic Identification System} data:
+  Use cases and the way forward.
+\newblock ADB Briefs 244, Asian Development Bank, 2023.
+
+\bibitem[Komaromi et~al.(2022)Komaromi, Cerdeiro, and Liu]{komaromi2022supply}
+Andras Komaromi, Diego Cerdeiro, and Yang Liu.
+\newblock Supply chains and port congestion around the world.
+\newblock IMF Working Paper 22/59, International Monetary Fund, 2022.
+
+\bibitem[Lechthaler and Stamer(2022)]{lechthaler2022kiel}
+Wolfgang Lechthaler and Vincent Stamer.
+\newblock The {Kiel} trade indicator -- a real-time indicator for trade flows.
+\newblock SUERF Policy Brief 418, SUERF -- The European Money and Finance
+  Forum, 2022.
+\newblock URL
+  \url{https://www.suerf.org/publications/suerf-policy-notes-and-briefs/the-kiel-trade-indicator-a-real-time-indicator-for-trade-flows}.
+
+\bibitem[Nurseiit(2025)]{nurseiit2025attractiveness}
+Nurlan Nurseiit.
+\newblock Attractiveness and prospects of the {Middle Corridor} for cargo
+  transportation between {Europe} and {Asia}.
+\newblock \emph{Journal of Eurasian Studies}, 17\penalty0 (1):\penalty0
+  167--182, 2025.
+\newblock \doi{10.1177/18793665251388115}.
+\newblock Abstract only.
+
+\bibitem[{OECD}(2023)]{oecd2023realising}
+{OECD}.
+\newblock \emph{Realising the Potential of the {Middle Corridor}}.
+\newblock OECD Publishing, Paris, 2023.
+\newblock \doi{10.1787/635ad854-en}.
+
+\bibitem[{OECD}(2025)]{oecd2025enhancing}
+{OECD}.
+\newblock \emph{Enhancing the Competitiveness of the {Trans-Caspian} Transport
+  Corridor in {Central Asia}}.
+\newblock OECD Publishing, Paris, 2025.
+\newblock \doi{10.1787/f261e7fa-en}.
+
+\bibitem[Palu and Hilmola(2023)]{palu2023future}
+Riina Palu and Olli-Pekka Hilmola.
+\newblock Future potential of {Trans-Caspian} corridor: Review.
+\newblock \emph{Logistics}, 7\penalty0 (3):\penalty0 39, 2023.
+\newblock \doi{10.3390/logistics7030039}.
+\newblock Abstract only.
+
+\bibitem[Paolo et~al.(2022)Paolo, Lin, Gupta, Goodman, Patel, Kuster, Kroodsma,
+  and Dunnmon]{paolo2022xview3}
+Fernando Paolo, Tsu-ting~Tim Lin, Ritwik Gupta, Bryce Goodman, Nirav Patel,
+  Daniel Kuster, David Kroodsma, and Jared Dunnmon.
+\newblock {xView3-SAR}: Detecting dark fishing activity using synthetic
+  aperture radar imagery.
+\newblock In \emph{Advances in Neural Information Processing Systems 35}, pages
+  37604--37616, 2022.
+\newblock \doi{10.52202/068431-2726}.
+
+\bibitem[Paolo et~al.(2024)Paolo, Kroodsma, Raynor, Hochberg, Davis, Cleary,
+  Marsaglia, Orofino, Thomas, and Halpin]{paolo2024satellite}
+Fernando~S. Paolo, David Kroodsma, Jennifer Raynor, Tim Hochberg, Pete Davis,
+  Jesse Cleary, Luca Marsaglia, Sara Orofino, Christian Thomas, and Patrick
+  Halpin.
+\newblock Satellite mapping reveals extensive industrial activity at sea.
+\newblock \emph{Nature}, 625:\penalty0 85--91, 2024.
+\newblock \doi{10.1038/s41586-023-06825-8}.
+
+\bibitem[Santamaria et~al.(2017)Santamaria, Alvarez, Greidanus, Syrris, Soille,
+  and Argentieri]{santamaria2017mass}
+Carlos Santamaria, Marlene Alvarez, Harm Greidanus, Vasileios Syrris, Pierre
+  Soille, and Pietro Argentieri.
+\newblock Mass processing of {Sentinel-1} images for maritime surveillance.
+\newblock \emph{Remote Sensing}, 9\penalty0 (7):\penalty0 678, 2017.
+\newblock \doi{10.3390/rs9070678}.
+\newblock Abstract only.
+
+\bibitem[Song et~al.(2026)Song, Song, Pfister, and
+  Yoon]{song2026paperorchestra}
+Yiwen Song, Yale Song, Tomas Pfister, and Jinsung Yoon.
+\newblock {PaperOrchestra}: A multi-agent framework for automated {AI} research
+  paper writing.
+\newblock arXiv:2604.05018, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.05018}.
+
+\bibitem[{SSRN}(2026)]{ssrn2026genai}
+{SSRN}.
+\newblock What is {SSRN}'s policy on the use of generative {AI} by authors?
+\newblock Elsevier Support Center, 2026.
+\newblock URL \url{https://www.elsevier.support/ssrn/answer/AI}.
+
+\bibitem[Stamer(2024)]{stamer2024thinking}
+Vincent Stamer.
+\newblock Thinking outside the container: A sparse partial least squares
+  approach to forecasting trade flows.
+\newblock \emph{International Journal of Forecasting}, 40\penalty0
+  (4):\penalty0 1336--1358, 2024.
+\newblock \doi{10.1016/j.ijforecast.2023.11.007}.
+\newblock Abstract only.
+
+\bibitem[{TITR International Association}()]{titr2026chart}
+{TITR International Association}.
+\newblock Transportation volume via {TITR}, thousand tons.
+\newblock Home-page chart; values read from the image.
+\newblock URL \url{https://middlecorridor.com/en/}.
+\newblock Opened 14 November 2026.
+
+\bibitem[Torres et~al.(2012)Torres, Snoeij, Geudtner, Bibby, Davidson, Attema,
+  Potin, Rommen, Floury, Brown, Traver, Deghaye, Duesmann, Rosich, Miranda,
+  Bruno, L'Abbate, Croci, Pietropaolo, Huchler, and Rostan]{torres2012sentinel}
+Ramon Torres, Paul Snoeij, Dirk Geudtner, David Bibby, Malcolm Davidson, Evert
+  Attema, Pierre Potin, Bj{\"o}rn Rommen, Nicolas Floury, Mike Brown,
+  Ignacio~Navas Traver, Patrick Deghaye, Berthyl Duesmann, Betlem Rosich, Nuno
+  Miranda, Claudio Bruno, Michelangelo L'Abbate, Renato Croci, Andrea
+  Pietropaolo, Markus Huchler, and Friedhelm Rostan.
+\newblock {GMES} {Sentinel-1} mission.
+\newblock \emph{Remote Sensing of Environment}, 120:\penalty0 9--24, 2012.
+\newblock \doi{10.1016/j.rse.2011.05.028}.
+\newblock Bibliographic record only.
+
+\bibitem[van~der Wielen et~al.(2024)van~der Wielen, McGurk, and
+  Barrett]{vanderwielen2024optimising}
+Nele van~der Wielen, Justin McGurk, and Labhaoise Barrett.
+\newblock Optimising port arrival statistics: Enhancing timeliness through
+  {Automatic Identification System} ({AIS}) data.
+\newblock \emph{Statistical Journal of the IAOS}, 40\penalty0 (2):\penalty0
+  421--434, 2024.
+\newblock \doi{10.3233/SJI-230100}.
+\newblock Abstract only.
+
+\bibitem[Verschuur et~al.(2021)Verschuur, Koks, and Hall]{verschuur2021global}
+Jasper Verschuur, Elco~E. Koks, and Jim~W. Hall.
+\newblock Global economic impacts of {COVID-19} lockdown measures stand out in
+  high-frequency shipping data.
+\newblock \emph{PLoS ONE}, 16\penalty0 (4):\penalty0 e0248818, 2021.
+\newblock \doi{10.1371/journal.pone.0248818}.
+
+\bibitem[Verschuur et~al.(2022)Verschuur, Koks, and Hall]{verschuur2022ports}
+Jasper Verschuur, Elco~E. Koks, and Jim~W. Hall.
+\newblock Ports' criticality in international trade and global supply-chains.
+\newblock \emph{Nature Communications}, 13:\penalty0 4351, 2022.
+\newblock \doi{10.1038/s41467-022-32070-0}.
+
+\bibitem[Wilson(1927)]{wilson1927probable}
+Edwin~B. Wilson.
+\newblock Probable inference, the law of succession, and statistical inference.
+\newblock \emph{Journal of the American Statistical Association}, 22\penalty0
+  (158):\penalty0 209--212, 1927.
+\newblock \doi{10.1080/01621459.1927.10502953}.
+\newblock Bibliographic record only.
+
+\bibitem[{World Bank}(2023)]{worldbank2023middle}
+{World Bank}.
+\newblock Middle trade and transport corridor: Policies and investments to
+  triple freight volumes and halve travel time by 2030.
+\newblock Technical report, World Bank, Washington, DC, 2023.
+\newblock URL \url{https://openknowledge.worldbank.org/handle/10986/40626}.
+
+\bibitem[{World Bank}(2026)]{worldbank2026integration}
+{World Bank}.
+\newblock Integration: World-class trade logistics along the {Trans-Caspian}
+  transport corridor.
+\newblock Technical report, World Bank, Washington, DC, 2026.
+\newblock URL
+  \url{https://www.worldbank.org/en/region/eca/publication/world-class-trade-logistics-along-trans-caspian-transport-corridor}.
+\newblock Opened 14 November 2026.
+
+\bibitem[Wu(2026)]{wu2026caspianshock}
+Shaoyuan Wu.
+\newblock Caspian logistics shock: Monitoring {Russia--Iran} supply stress
+  after the {Anzali} strike: Visible vessel contraction, port-rhythm inversion,
+  and window-based logistics in the {Caspian} corridor.
+\newblock EPINOVA Policy Brief EPINOVA-2026-PB-44, EPINOVA LLC, 2026.
+
+\bibitem[Yang et~al.(2019)Yang, Wu, Wang, Jia, and Li]{yang2019big}
+Dong Yang, Lingxiao Wu, Shuaian Wang, Haiying Jia, and Kevin~X. Li.
+\newblock How big data enriches maritime research -- a critical review of
+  {Automatic Identification System} ({AIS}) data applications.
+\newblock \emph{Transport Reviews}, 39\penalty0 (6):\penalty0 755--773, 2019.
+\newblock \doi{10.1080/01441647.2019.1649315}.
+\newblock Abstract only.
+
+\bibitem[Zhumanov et~al.(2024)Zhumanov, Kegenbekov, and
+  Tolujevs]{zhumanov2024trans}
+Azat Zhumanov, Zhandos Kegenbekov, and Jurijs Tolujevs.
+\newblock {Trans-Caspian International Transport Route} infrastructure
+  assessment using simulation modelling.
+\newblock \emph{Transport and Telecommunication Journal}, 25\penalty0
+  (1):\penalty0 11--19, 2024.
+\newblock \doi{10.2478/ttj-2024-0002}.
+\newblock Abstract only.
+
+\end{thebibliography}
