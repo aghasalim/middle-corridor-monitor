@@ -244,6 +244,38 @@ poor one (65 %); ±5 points costs almost twice the work (345) for a gain smaller
 Per zone this sample gives about ±8 points for the roadstead (138 chips) and ±14 points for the basin (48 chips).
 If the basin is to be judged on its own at ±10 points, label 87 basin detections instead of 48.
 
+### 9.1 AI labels (14 Nov 2026) — not checked by a person
+
+At Salim's request all 314 chips were labelled by an AI model (Claude Opus 5.5, `claude-opus-5-5`), looking at the
+chips only (contact sheets showing sample_id and kind; no zone, no detector score or size). Labels are in
+`data/sar/model_labels.csv` (`model_is_vessel`, `model_n_vessels_seen`, `model_n_vessels_possible`, `model_note`);
+the human columns of `label_sample.csv` are left for a person. Rule fixed before looking: **yes** = compact bright
+target in VV/VH that the mean image does not show; **no** = speckle, or a pier/quay that the mean shows with the
+same shape; **unsure** = bright at a quay that the mean also shows bright, or a faint streak in VV only.
+For empty tiles: clear vessels counted, doubtful ones in `model_n_vessels_possible`.
+
+Result (`research/sar_label_eval.py` → `outputs/tables/sar_label_eval.csv`; 95 % Wilson intervals):
+
+| Zone | Detections | yes / no / unsure | Precision yes / (yes + no) | Empty tiles | Tiles with a clear (possible) missed vessel |
+|---|---|---|---|---|---|
+| Roadstead | 138 | 131 / 1 / 6 | 0.99 (0.96–0.999) | 64 | 0 (0), 0 % (0–6 %) |
+| Basin | 48 | 7 / 27 / 14 | 0.21 (0.10–0.37) | 64 | 2 (+5), 3 % (1–11 %) |
+
+Reading: the roadstead count is close to a vessel count; the basin count is mostly piers and quays the mask
+did not remove. Weak point of the labels: a ship moored at a quay looks like the quay at this resolution,
+so basin "no" may hide some ships. The tile figure is a share of 960 m tiles, not a recall.
+
+**Human check.** A fixed random 50 chips (30 detections, 20 tiles; seed 20261114, `human_check = 1` in
+`model_labels.csv`) are for Salim to label blind: `python research/label_tool.py --check` shows only those,
+without the AI labels. `sar_label_eval.py` then writes agreement and Cohen's kappa to
+`outputs/tables/sar_label_agreement.csv`. Salim had labelled 10 chips (S0001–S0010) himself before the AI
+labels existed; they are kept and 4 of them are in the check sample.
+
+**Status 15 Nov 2026: the 50-chip check was not done** (4 of 50 labelled); Salim asked to go ahead on the AI
+labels. `sar_label_agreement.csv` now compares the AI with every chip a person has labelled — only S0001–S0010:
+detections 3 of 5 agree (the other 2: AI unsure, Salim yes; kappa not meaningful, Salim said yes to all 5),
+empty tiles 5 of 5 agree (all 0). That is a spot check, not a validation.
+
 ## 10. How to reproduce
 
 ```
