@@ -349,3 +349,18 @@ Sources marked "re-opened" were opened again by the person assembling the paper;
 | all | Citation line now "Sources: Kpler; UN Global Platform; IMF PortWatch" | PortWatch FAQ | re-opened |
 
 Not reproduced: the agent's Gwangyang query (298 calls in October 2021, 1,205 in December). The service refused requests on 14 November, so these figures are not in the paper.
+
+## Changes after the radar labels (14 November 2026)
+
+All from `outputs/tables/sar_label_eval.csv` (written by `research/sar_label_eval.py` from `data/sar/model_labels.csv`). Every one of these numbers rests on AI labels (`claude-opus-5-5`) that no person has checked.
+
+| Section | Claim as written | Source | Row / column | How |
+|---|---|---|---|---|
+| Abstract, 5.6 | roadstead "131 of 132 decided", basin "7 of 34" | `sar_label_eval.csv` | precision rows: roadstead `yes` 131, `no` 1; basin `yes` 7, `no` 27 | copied; derived (yes + no) |
+| 4.3 | "186 detections", "128 tiles", "all 314 image chips", "a fixed random 50 chips" | `data/sar/model_labels.csv` | 186 detection + 128 empty_tile rows = 314; `human_check` = 1 on 30 detection and 20 empty_tile rows (seed 20261114) | count |
+| 5.6 | roadstead "99%, 95% interval 96% to 99.9%; 6 unsure" | `sar_label_eval.csv` | roadstead precision: `value` 0.9924, `ci95_low` 0.958, `ci95_high` 0.9987, `unsure` 6, `n` 138 | rounded |
+| 5.6 | basin "21%, 10% to 37%; 14 unsure" | `sar_label_eval.csv` | basin precision: `value` 0.2059, `ci95_low` 0.1034, `ci95_high` 0.3682, `unsure` 14, `n` 48 | rounded |
+| 5.6 | "no vessel in the roadstead (0 of 64)" | `sar_label_eval.csv` | roadstead missed-vessel row: `yes` 0, `unsure` 0, `n` 64 (Wilson upper bound 0.057, not quoted) | copied |
+| 5.6 | "a clear one in 2 of 64 in the basin (5 more possible)" | `sar_label_eval.csv` | basin missed-vessel row: `yes` 2, `unsure` 5, `n` 64 | copied |
+| 4.3 | "a 10-chip spot check" (paper gives no agreement figure; detail in SAR_METHOD 9.1) | `outputs/tables/sar_label_agreement.csv` | detections `n_labelled_by_human` 5, `agreement` 0.6 (3 of 5; the 2 others are `model_is_vessel` unsure, `is_vessel` yes in `label_sample.csv` S0006, S0010); empty tiles 5, `agreement` 1.0 | derived: 3 + 5 = 8 |
+| 7 | "a fixed random 50 chips" | `data/sar/model_labels.csv` | `human_check` = 1 | count |

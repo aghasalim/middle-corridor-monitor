@@ -1,0 +1,3 @@
+set,n_labelled_by_human,agreement,cohen_kappa
+"detections, yes/no/unsure",5,0.6,0.0
+"empty tiles, any vessel (0 vs >=1)",5,1.0,
