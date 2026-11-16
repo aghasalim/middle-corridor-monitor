@@ -37,8 +37,8 @@ How to read the columns:
 | 17 | 2 | Quotation "may not be more accurate than using port call information" | `research/references.bib` | adb2023ais (quoted in `research/LITERATURE.md` sections 2 and 3) | note |
 | 18 | 2 | "eleven component indices over 19 port or route-year observations", "uses no AIS data" | `research/references.bib` | gondauri2026bsmcii (as recorded in `research/LITERATURE.md` section 1) | note |
 | 19 | 2 | "over a window in April 2026 without naming its data source" | `research/references.bib` | wu2026caspianshock (`research/LITERATURE.md` section 1: window 8 to 29 April 2026) | note |
-| 20 | 2 | "excludes water within 1 km of shore" | `research/references.bib` | paolo2024satellite (as recorded in `research/STEP1_RESEARCH.md` section d) | note |
-| 21 | 2 | "by our check of its published study area it does not cover the Caspian" | `research/STEP1_RESEARCH.md` | section d (study-area file on figshare; that file is not in `references.bib`) | note |
+| 20 | 2 | "excludes water within 1 km of shore" | `research/references.bib` | paolo2024satellite (as recorded in `research/SCOPING_RESEARCH.md` section d) | note |
+| 21 | 2 | "by our check of its published study area it does not cover the Caspian" | `research/SCOPING_RESEARCH.md` | section d (study-area file on figshare; that file is not in `references.bib`) | note |
 | 22 | 2 | "Google Scholar and eLIBRARY could not be searched" | `research/LITERATURE.md` | section 1, table rows 24 and 26 | note |
 | 23 | 2 | "a comparison with 517 official figures" | `data/official/official_figures.csv` | number of data rows (518 lines less the header) | copied |
 | 24 | 2 | "three questions" | none | count of the listed questions | count |
@@ -54,8 +54,8 @@ How to read the columns:
 | 29 | 3.1 | "AIS data come from Spire through the UN Global Platform" | `research/references.bib` | portwatch2026dailyports (quoted in `research/LITERATURE.md` section 4) | note |
 | 30 | 3.1 | "Four exclusions" | none | count of the listed bullets | count |
 | 31 | 3.1 | "underlying method keeps only trade-carrying vessels" | `research/references.bib` | verschuur2021global (quoted in `research/LITERATURE.md` section 3) | note |
-| 32 | 3.1 | "Its point (40.2846 N, 49.7325 E)" | `research/STEP1_RESEARCH.md` | section a (PortWatch ports database, port100) | note |
-| 33 | 3.1 | "about 43 km from Alat by our rough estimate" | `research/STEP1_RESEARCH.md` | section a ("roughly 43 km north-east of Alat (my distance estimate ...)") | note, estimate |
+| 32 | 3.1 | "Its point (40.2846 N, 49.7325 E)" | `research/SCOPING_RESEARCH.md` | section a (PortWatch ports database, port100) | note |
+| 33 | 3.1 | "about 43 km from Alat by our rough estimate" | `research/SCOPING_RESEARCH.md` | section a ("roughly 43 km north-east of Alat (my distance estimate ...)") | note, estimate |
 | 34 | 3.1 | "2.4 to 3.4 times the oil tonnage the Port of Baku reports for 2021, 2023 and 2024" | `outputs/tables/validate_periods.csv` | rows entity = Port of Baku, metric = tonnes_oil, pw_measure = tanker_tonnes; `ratio_pw_over_official` 3.378 (2021), 2.554 (2023), 2.421 (2024) | rounded |
 | 35 | 3.2 | "517 published numbers" | `data/official/official_figures.csv` | number of data rows | copied |
 | 36 | 3.2 | "433 opened at the source, 77 carried over ..., and 7 seen only in search snippets" | `data/official/official_figures.csv` | column `status`: count of opened (433), step1 (77), snippet (7) | derived (count) |
@@ -290,11 +290,11 @@ The brief allows four kinds of source: `outputs/tables/`, `data/official/officia
 |---|---|---|
 | 1, 26, 213 | `data/portwatch/snapshot.json` (download date, days per port, first and last day) | The only file that records the PortWatch download |
 | 25, 56, 58 to 62, 64 | `src/mcm/index.py`, `src/mcm/validate.py` (port ids, definitions, windows, parameters) | Method settings, not results |
-| 32, 33 | `research/STEP1_RESEARCH.md` section a (PortWatch point for "Baku Port"; the 43 km distance is an author estimate) | The brief asks for the Baku point location |
-| 21 | `research/STEP1_RESEARCH.md` section d (Caspian not in the published study area of Paolo et al.) | The study-area file is not in `references.bib` |
+| 32, 33 | `research/SCOPING_RESEARCH.md` section a (PortWatch point for "Baku Port"; the 43 km distance is an author estimate) | The brief asks for the Baku point location |
+| 21 | `research/SCOPING_RESEARCH.md` section d (Caspian not in the published study area of Paolo et al.) | The study-area file is not in `references.bib` |
 | 66 to 69, 71, 200 | `research/SAR_METHOD.md` (detector settings, zones, 128 empty tiles, platform dates) | The brief asks for the detector in a few sentences |
 | 110, 180 to 184, 186, 206 | `research/FERRY_FLEET.md` (vessel pages on VesselFinder, read 13 November 2026; not in `references.bib`) | The brief asks for the ferry classification from this file |
-| 14 to 20, 27 to 29, 31, 114, 142, 171, 185, 212 | Claims about cited works. They were taken from the reading notes in `research/LITERATURE.md` and `research/STEP1_RESEARCH.md`. The works themselves were not re-opened while drafting | Each is tied to a key in `references.bib` |
+| 14 to 20, 27 to 29, 31, 114, 142, 171, 185, 212 | Claims about cited works. They were taken from the reading notes in `research/LITERATURE.md` and `research/SCOPING_RESEARCH.md`. The works themselves were not re-opened while drafting | Each is tied to a key in `references.bib` |
 | 22, 113 | `research/LITERATURE.md` (what could not be searched; no documented break) | Statements about the search, not data |
 
 ## Changes after the independent check (13 November 2026)
@@ -331,7 +331,7 @@ New or changed numbers, all from `outputs/tables/paper_checks.csv` (written by `
 
 ## Changes after the research pass (14 November 2026)
 
-Sources marked "re-opened" were opened again by the person assembling the paper; "agent" means opened once by a research agent (notes in `research/DEEP_*.md`).
+Sources marked "re-opened" were opened again by the person assembling the paper; "agent" means opened once by an AI research assistant (notes in `research/OFFICIAL_SOURCES.md`, `research/PORTWATCH_METHOD.md` and `research/RORO_AND_REGIONAL.md`).
 
 | Section | Number or claim | Source | Status |
 |---|---|---|---|
@@ -339,13 +339,13 @@ Sources marked "re-opened" were opened again by the person assembling the paper;
 | 2 | Ministry series 4.484 Mt (2024) | `data/official/official_figures.csv` | as before |
 | 2 | Association press release 3.3 Mt (2024) | middlecorridor.com news of 4 March 2025 | agent |
 | 2 | World Bank 2026: no AIS or satellite data; 8.8 Mt across the Caspian in 2023 is model output | World Bank (2026), PDF p. 85 to 91, 241 | agent |
-| 2 | CyberLeninka search found no such work | `research/DEEP_RORO_AND_REGIONAL.md` | agent |
+| 2 | CyberLeninka search found no such work | `research/RORO_AND_REGIONAL.md` | agent |
 | 3.1 | Port call = arrival at berth; provider named as Kpler | PortWatch FAQ, ArcGIS item 640b69a4a96f41a6937cb4d2984f26da | re-opened |
-| 3.1 | Provider exactEarth (2021 method paper), Spire (dataset description) | `research/DEEP_PORTWATCH_METHOD.md` finding 3.6 | agent |
+| 3.1 | Provider exactEarth (2021 method paper), Spire (dataset description) | `research/PORTWATCH_METHOD.md` finding 3.6 | agent |
 | 5.2 | Coverage change November 2021 at Gwangyang and the Malacca Strait | PortWatch FAQ | re-opened |
 | 5.2 | Ro-Ro calls 2 (Mar to May 2021), 20 (Jul), 33 (Aug), 61 (Dec); all calls mean 250 and 306 | `outputs/tables/coverage_break_check.csv` | own code |
 | 5.6 | Kuryk 1,560 kt and North Terminal 667 kt | Aktau port strategy 2022 to 2032, p. 7 | re-opened |
-| 5.6 | Two more ferries (Mingachevir, Ordubad) | `research/DEEP_RORO_AND_REGIONAL.md` | agent |
+| 5.6 | Two more ferries (Mingachevir, Ordubad) | `research/RORO_AND_REGIONAL.md` | agent |
 | all | Citation line now "Sources: Kpler; UN Global Platform; IMF PortWatch" | PortWatch FAQ | re-opened |
 
 Not reproduced: the agent's Gwangyang query (298 calls in October 2021, 1,205 in December). The service refused requests on 14 November, so these figures are not in the paper.

@@ -1,6 +1,6 @@
 # PortWatch method: port areas, ship types, AIS feed changes, validation (14 Nov 2026)
 
-Extends `STEP1_RESEARCH.md`, `OPEN_QUESTIONS.md` (#1, #2, #3, #5, #7, #11) and `LITERATURE.md` section 4. Does not repeat them.
+Extends `SCOPING_RESEARCH.md`, `OPEN_QUESTIONS.md` (#1, #2, #3, #5, #7, #11) and `LITERATURE.md` section 4. Does not repeat them.
 
 **Status tags.** VERIFIED = I opened the page, PDF or API response on 14 Nov 2026 and read the passage. UNVERIFIED = search snippet only, or the page would not open. Three kinds of VERIFIED are marked where it matters:
 

@@ -246,7 +246,7 @@ If the basin is to be judged on its own at ±10 points, label 87 basin detection
 
 ### 9.1 AI labels (14 Nov 2026) — not checked by a person
 
-At Salim's request all 314 chips were labelled by an AI model (Claude Opus 5.5, `claude-opus-5-5`), looking at the
+All 314 chips were labelled by an AI model (Claude Opus 5.5, `claude-opus-5-5`), looking at the
 chips only (contact sheets showing sample_id and kind; no zone, no detector score or size). Labels are in
 `data/sar/model_labels.csv` (`model_is_vessel`, `model_n_vessels_seen`, `model_n_vessels_possible`, `model_note`);
 the human columns of `label_sample.csv` are left for a person. Rule fixed before looking: **yes** = compact bright
@@ -266,14 +266,14 @@ did not remove. Weak point of the labels: a ship moored at a quay looks like the
 so basin "no" may hide some ships. The tile figure is a share of 960 m tiles, not a recall.
 
 **Human check.** A fixed random 50 chips (30 detections, 20 tiles; seed 20261114, `human_check = 1` in
-`model_labels.csv`) are for Salim to label blind: `python research/label_tool.py --check` shows only those,
+`model_labels.csv`) are for a person to label blind: `python research/label_tool.py --check` shows only those,
 without the AI labels. `sar_label_eval.py` then writes agreement and Cohen's kappa to
-`outputs/tables/sar_label_agreement.csv`. Salim had labelled 10 chips (S0001–S0010) himself before the AI
+`outputs/tables/sar_label_agreement.csv`. The first author had labelled 10 chips (S0001–S0010) before the AI
 labels existed; they are kept and 4 of them are in the check sample.
 
-**Status 15 Nov 2026: the 50-chip check was not done** (4 of 50 labelled); Salim asked to go ahead on the AI
+**Status 15 Nov 2026: the 50-chip check was not done** (4 of 50 labelled); we went ahead on the AI
 labels. `sar_label_agreement.csv` now compares the AI with every chip a person has labelled — only S0001–S0010:
-detections 3 of 5 agree (the other 2: AI unsure, Salim yes; kappa not meaningful, Salim said yes to all 5),
+detections 3 of 5 agree (the other 2: AI unsure, person yes; kappa not meaningful, the person said yes to all 5),
 empty tiles 5 of 5 agree (all 0). That is a spot check, not a validation.
 
 ## 10. How to reproduce

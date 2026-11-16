@@ -1,6 +1,6 @@
 # The Ro-Ro step, regional-language literature and satellite ship counts (14 Nov 2026)
 
-Extends `FERRY_FLEET.md`, `LITERATURE.md`, `OPEN_QUESTIONS.md` and `STEP1_RESEARCH.md`. It does not repeat them.
+Extends `FERRY_FLEET.md`, `LITERATURE.md`, `OPEN_QUESTIONS.md` and `SCOPING_RESEARCH.md`. It does not repeat them.
 
 **How to read the tags.** Every page was opened on **14 Nov 2026**.
 - **VERIFIED** = the page was fetched and the passage was read. Pages were read through a fetch tool that returns extracted text, not through a browser. Re-open each page by hand before quoting it in the paper.

@@ -23,7 +23,7 @@ Ordered by how much each one blocks the index.
 
 ## Update after the research pass of 14 November 2026
 
-Details and sources: `DEEP_PORTWATCH_METHOD.md`, `DEEP_OFFICIAL_SOURCES.md`, `DEEP_RORO_AND_REGIONAL.md`.
+Details and sources: `PORTWATCH_METHOD.md`, `OFFICIAL_SOURCES.md`, `RORO_AND_REGIONAL.md`.
 
 - Port polygons: still not published anywhere. An IMF paper says boundaries are available from the authors on request, so this now needs an email to PortWatch (not sent).
 - Ship-type mapping: PortWatch's own table is not published. The published table of the method it grew from removes passenger/Ro-Ro ships.
