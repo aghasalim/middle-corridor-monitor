@@ -376,3 +376,15 @@ The LaTeX version carries the numbers above unchanged. New in it:
 | Table 3 caption | "the other 44 pairs" | `outputs/tables/validate_summary.csv` | 56 rows less the 12 in Table 3 | derived |
 | Figure 5 caption | Sentinel-2 image of "1 September 2025" | `outputs/figures/sar_zones.png` (panel title, drawn by `src/mcm/sar/report.py`) | | copied |
 | Figures 3 and 4 | yearly ratios and year-on-year changes; the 30 out-of-sample months and three forecasts | `research/paper_figures.py` from `outputs/tables/validate_annual.csv` and `validate_monthly.csv` | rows as in Table 3 rows 1, 3, 5, 8 and row 126; `fc_*` columns | plotted, no new figure in the text |
+
+## Second detector (Ai2), added 16 November 2026
+
+All from `research/detector_agreement.py` -> `outputs/tables/sar_detector_agreement.csv` and `sar_detector_agreement_labels.csv`
+(inputs: `data/sar/detections.csv`, `data/sar/detections_ai2.csv`, `data/sar/model_labels.csv`).
+
+- Roadstead: ours 2,488, Ai2 2,341, ours matched 2,278 (0.916), Ai2 matched 2,278 (0.973), per-pass count correlation 0.978, n = 671 passes.
+- Roadstead share of ours matched per year: lowest 0.840 (2023), highest 0.935 (2026).
+- Basin: ours 845, Ai2 23.
+- AI-labelled sample: roadstead "yes" 131, of which Ai2 matches 127; basin "no" 27, Ai2 matches 0; basin "yes" 7, Ai2 matches 2.
+- 9 passes were given a later historical pass: `hist_offset_days > 0` in `data/sar/detections_ai2_passes.csv`.
+- Match distance 50 m, Ai2 score threshold 0.9: `MATCH_M`, `MODEL_SCORE` in `research/second_detector.py`.

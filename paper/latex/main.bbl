@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -20,6 +20,14 @@ Roar Adland, Haiying Jia, and Siri~P. Strandenes.
 \newblock URL
   \url{https://portaktau.kz/wp-content/uploads/2026/02/strategiya-razvitiya-amtp-2022-2032.pdf}.
 \newblock Page 7. Opened 14 November 2026.
+
+\bibitem[{Allen Institute for AI}(2026)]{ai2rslearn2026}
+{Allen Institute for AI}.
+\newblock rslearn\_projects: {Sentinel-1} vessel detection model
+  (20260626\_num\_historical).
+\newblock GitHub repository, commit 393636e, Apache-2.0, 2026.
+\newblock URL \url{https://github.com/allenai/rslearn_projects}.
+\newblock Opened 16 November 2026.
 
 \bibitem[Arslanalp et~al.(2019)Arslanalp, Marini, and
   Tumbarello]{arslanalp2019big}

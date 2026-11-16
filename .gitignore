@@ -6,3 +6,6 @@ data/sar/raw/
 data/sar/cache/
 *.tif
 .env
+data/sar/models/
+data/sar/ai2_run*.log
+data/sar/*.lenovo-partial.csv
