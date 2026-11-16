@@ -46,15 +46,15 @@ The results are mostly negative. The numbers below are from the paper, `paper/la
 
 ```mermaid
 flowchart LR
-  A["IMF PortWatch<br>daily port data<br>Baku, Aktau, Turkmenbashi"] --> B["Monthly index<br>2019 = 100"]
-  C["Official figures<br>517 numbers, each with its source"] --> D["Validation<br>levels, yearly changes,<br>out-of-sample forecasts"]
+  A["IMF PortWatch<br>daily port data<br>Baku, Aktau,<br>Turkmenbashi"] --> B["Monthly index<br>2019 = 100"]
+  C["Official figures<br>517 numbers,<br>each with<br>its source"] --> D["Validation<br>levels,<br>yearly changes,<br>out-of-sample<br>forecasts"]
   B --> D
-  E["Sentinel-1 radar<br>671 passes at Alat"] --> F["Our detector<br>brightness against<br>the usual image"]
+  E["Sentinel-1 radar<br>671 passes<br>at Alat"] --> F["Our detector<br>brightness<br>against the<br>usual image"]
   E --> G["Ai2 vessel model<br>neural network"]
-  F --> H["AI labels of a sample<br>314 images"]
+  F --> H["AI labels of<br>a sample<br>314 images"]
   F --> I["Agreement<br>within 50 m"]
   G --> I
-  D --> J["Paper, page, tables"]
+  D --> J["Paper, page,<br>tables"]
   H --> J
   I --> J
 ```
