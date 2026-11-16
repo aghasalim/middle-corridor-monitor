@@ -9,3 +9,4 @@ data/sar/cache/
 data/sar/models/
 data/sar/ai2_run*.log
 data/sar/*.lenovo-partial.csv
+paper/orchestra/

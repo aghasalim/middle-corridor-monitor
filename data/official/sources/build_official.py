@@ -279,7 +279,7 @@ H = [
 for h in H:
     add(*h)
 
-# ---------------- STEP1_RESEARCH.md section e, carried over ----------------
+# ---------------- SCOPING_RESEARCH.md section e, carried over ----------------
 S = "step1"
 ST = [
 ("TITR","2025-01-01","2025-12-31","tonnes_total",4119000,"tonnes","route cargo per year (Kazakh Ministry of Transport)","https://astanatimes.com/2026/03/trans-caspian-transport-route-cargo-volumes-increase-fivefold-in-seven-years/","2026-03","2024: 4.484 Mt; no definition of modes or border"),

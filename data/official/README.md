@@ -7,7 +7,7 @@
   multiplied out, and the decimals the source printed are kept.
 - `status` is one of:
   - `opened`: the page, PDF or official table was opened and the number is visible there.
-  - `step1`: carried over from `research/STEP1_RESEARCH.md` section e without being re-opened.
+  - `step1`: carried over from `research/SCOPING_RESEARCH.md` section e without being re-opened.
   - `snippet`: seen only in a search result.
 - Words such as "over", "about" and "nearly" are kept in `note`. Ranges are recorded at their lower bound, with a note.
 - Containers and TEU are never converted into each other. "ДФЭ" (DFE) is Russian for TEU.

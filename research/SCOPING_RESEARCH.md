@@ -1,6 +1,6 @@
-# Middle Corridor Monitor — Step 1 research (13 Nov 2026)
+# Middle Corridor Monitor: scoping research (13 Nov 2026)
 
-Status of each claim: **checked** = I ran the query or opened the page myself; **agent** = a research sub-agent opened the page and read the number, I did not re-open it; **snippet** = seen only in a search result; **unverified** = not confirmed.
+Status of each claim: **checked** = the query was run or the page opened directly; **agent** = an AI research assistant opened the page and read the number, and it was not re-opened; **snippet** = seen only in a search result; **unverified** = not confirmed.
 
 ## a) PortWatch "Baku Port" — checked, boundary unverified
 

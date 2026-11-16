@@ -1,6 +1,6 @@
 # Middle Corridor Monitor — literature and methods (13 Nov 2026)
 
-Extends `STEP1_RESEARCH.md` (sections a, b, d, f, g); does not repeat it.
+Extends `SCOPING_RESEARCH.md` (sections a, b, d, f, g); does not repeat it.
 Tags: **opened** = I opened the page or PDF and read the passage; **abstract** = only the abstract/metadata record (Crossref/OpenAlex/publisher landing page) was read, not the full text; **snippet** = search-result text only; **not opened** = could not open.
 PDFs read as text are in `E:\salim\middle-corridor-monitor-scratch\lit\` (outside the repo).
 
