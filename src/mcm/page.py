@@ -42,6 +42,19 @@ def write(s, step, snap, fig_dir, docs):
     lab = pd.read_csv(tables / "sar_label_eval.csv")
     prec = lab[lab.measure.str.startswith("precision")].set_index("zone")
     road, basin = prec.loc["roadstead"], prec.loc["basin"]
+    ag = pd.read_csv(tables / "sar_detector_agreement.csv")
+    ag = ag[ag.year == "all"].set_index("zone")
+    ro, ba = ag.loc["roadstead"], ag.loc["basin"]
+    detectors = f"""<h2>Two detectors on the same radar images</h2>
+<video src="detectors.mp4" controls muted loop playsinline style="max-width:100%;height:auto" aria-label="Animation: Sentinel-1 passes at Alat, 2019 to 2026, with the detections of our detector and of the vessel model of the Allen Institute for AI"></video>
+<p class="muted">One frame per radar pass (relative orbit 6, every third pass). Left: the radar image of that pass. Gold
+dot: our detector. Blue ring: the Sentinel-1 vessel model of the Allen Institute for AI. Right: roadstead detections
+per pass by each detector.</p>
+<p>In the roadstead the second model finds {ro.ours_matched:,.0f} of our {ro.ours:,.0f} detections within 50 m
+({ro.ours_matched_share:.0%}), and the counts per pass correlate at {ro.r_counts_per_pass:.2f}. In the harbour basin it
+reports {ba.ai2:.0f} objects against our {ba.ours:.0f}. Both detectors read the same images, so agreement between them
+is not accuracy.</p>
+"""
     checks = f"""<h2>Checks against official figures</h2>
 <ul>
 <li>The index does not track the official Trans-Caspian route total. Over {titr.level_n:.0f} years both rise
@@ -88,6 +101,7 @@ by the code in this repository from a dated data snapshot.</p>
 Tanker calls are reported separately and are not in the headline.</p>
 
 {checks}
+{detectors}
 <h2>What this does not measure</h2>
 <ul>
 <li>Kuryk, Kazakhstan's ferry port, is not in PortWatch, so it is missing from the index.</li>

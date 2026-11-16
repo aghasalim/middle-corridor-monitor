@@ -56,6 +56,16 @@ calls reported by the Kazakh maritime administration over 7 years.</li>
 </ul>
 <p class="muted">Samples are short and these checks are preliminary. Full tables: outputs/tables/validate_*.csv.</p>
 
+<h2>Two detectors on the same radar images</h2>
+<video src="detectors.mp4" controls muted loop playsinline style="max-width:100%;height:auto" aria-label="Animation: Sentinel-1 passes at Alat, 2019 to 2026, with the detections of our detector and of the vessel model of the Allen Institute for AI"></video>
+<p class="muted">One frame per radar pass (relative orbit 6, every third pass). Left: the radar image of that pass. Gold
+dot: our detector. Blue ring: the Sentinel-1 vessel model of the Allen Institute for AI. Right: roadstead detections
+per pass by each detector.</p>
+<p>In the roadstead the second model finds 2,278 of our 2,488 detections within 50 m
+(92%), and the counts per pass correlate at 0.98. In the harbour basin it
+reports 23 objects against our 845. Both detectors read the same images, so agreement between them
+is not accuracy.</p>
+
 <h2>What this does not measure</h2>
 <ul>
 <li>Kuryk, Kazakhstan's ferry port, is not in PortWatch, so it is missing from the index.</li>
