@@ -34,7 +34,7 @@ The results are mostly negative. The numbers below are from the paper, `paper/la
 | How much dry cargo does it see at Baku? | About 12% of the official total. |
 | Is the fourfold rise in Ro-Ro calls from 2021 to 2022 real? | Not on the evidence. Official ferry statistics for Kuryk show +50% in calls and +87% in tonnes. The cause is not confirmed. |
 | What is missing? | Kuryk, with 18% to 30% of Kazakh seaport cargo (one year is in doubt), is not in PortWatch. |
-| Does radar confirm the counts? | Not yet. 3,333 objects in 671 passes at Alat. By AI labels of a sample, 131 of 132 decided detections in the roadstead are vessels, but only 7 of 34 in the harbour basin. No person has checked the labels beyond a 10-image spot check. |
+| Does radar confirm the counts? | Not yet. 3,333 objects in 671 passes at Alat. By AI labels of a sample, 131 of 132 decided detections in the roadstead are vessels, but only 7 of 34 in the harbour basin. No person has checked the labels beyond a 10-image spot check. An independent open model (Ai2) finds 92% of our roadstead detections and almost nothing in the basin. |
 
 ![Ro-Ro calls per port, 2021 to 2023: the step appears at all three Caspian ports](outputs/figures/index_roro_step.png)
 
@@ -95,6 +95,10 @@ The LaTeX version for arXiv is in `paper/latex/` (`main.tex`, `references.bib`, 
 
 (On macOS/Linux use `.venv/bin/python`.) The build fails loudly if a port's download is short,
 has a duplicated day or a missing day.
+
+The second radar detector (`research/second_detector.py`, then `research/detector_agreement.py`) needs PyTorch, `rslearn`,
+a clone of https://github.com/allenai/rslearn_projects (set `RSLEARN_PROJECTS` to its folder) and its 1.26 GB checkpoint;
+see `research/SECOND_DETECTOR_OPTIONS.md`. Its results are already in `data/sar/detections_ai2.csv`.
 
 The video and the title image are rebuilt with `research/video.py` (needs ffmpeg) and `research/banner.py`.
 
