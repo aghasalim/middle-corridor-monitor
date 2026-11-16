@@ -42,6 +42,43 @@ The results are mostly negative. The numbers below are from the paper, `paper/la
 
 ![Radar detections per pass over time at Alat, basin and roadstead](outputs/figures/sar_timeseries.png)
 
+## How it works
+
+```mermaid
+flowchart LR
+  A["IMF PortWatch<br>daily port data<br>Baku, Aktau, Turkmenbashi"] --> B["Monthly index<br>2019 = 100"]
+  C["Official figures<br>517 numbers, each with its source"] --> D["Validation<br>levels, yearly changes,<br>out-of-sample forecasts"]
+  B --> D
+  E["Sentinel-1 radar<br>671 passes at Alat"] --> F["Our detector<br>brightness against<br>the usual image"]
+  E --> G["Ai2 vessel model<br>neural network"]
+  F --> H["AI labels of a sample<br>314 images"]
+  F --> I["Agreement<br>within 50 m"]
+  G --> I
+  D --> J["Paper, page, tables"]
+  H --> J
+  I --> J
+```
+
+Every arrow is a script in this repository: `python -m mcm.build` for the index and the validation, `python -m mcm.sar.run`
+for our detector, `research/second_detector.py` and `research/detector_agreement.py` for the second one.
+
+## Two detectors on the same radar images
+
+![Animation: 76 Sentinel-1 passes at Alat, 2019 to 2026, with the detections of our detector and of Ai2's vessel model](docs/detectors.gif)
+
+One frame per radar pass (relative orbit 6, every third pass; [MP4 version](docs/detectors.mp4)). Left: the real radar
+image of that pass. A gold dot is a detection by our detector, a blue ring is one by the Sentinel-1 vessel model of the
+Allen Institute for AI. Right: roadstead detections per pass by each detector. Drawn by `research/video_detectors.py`.
+
+| Zone | Our detector | Ai2 model | Ours matched within 50 m | Ai2's matched |
+|---|---|---|---|---|
+| Roadstead (open water) | 2,488 | 2,341 | 2,278 (92%) | 2,278 (97%) |
+| Harbour basin (quays) | 845 | 23 | 24 (3%) | 23 |
+
+In the roadstead the two detectors agree in every year (84% to 94% of ours matched) and their counts per pass correlate
+at 0.98. At the quays the second model finds almost nothing, so it neither confirms nor replaces a basin count. Both
+detectors read the same images, so agreement between them is not accuracy. Per year: `outputs/tables/sar_detector_agreement.csv`.
+
 ## Who did what
 
 - Aghasalim Mustafazada (third-year bachelor student, Creative Technologies & AI, Howest, Belgium):
