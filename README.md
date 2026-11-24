@@ -18,6 +18,23 @@ Working paper, November 2026. Preliminary and not peer reviewed.
 radar detections. They are bright objects on the water, not confirmed ships. Right: the index up to that month.
 Drawn by `research/video.py` from the data in this repository ([MP4](docs/monitor.mp4)).*
 
+<details>
+<summary>Contents</summary>
+
+- [Abstract](#abstract)
+- [Motivation](#motivation)
+- [Results](#results)
+- [Method](#method)
+- [Radar at Alat](#radar-at-alat)
+- [Limitations](#limitations)
+- [Data](#data)
+- [Author contributions](#author-contributions)
+- [Citation](#citation)
+- [Acknowledgements](#acknowledgements)
+- [Licence](#licence)
+
+</details>
+
 ## Abstract
 
 We build an open monthly index of cargo ship calls on the Caspian leg of the Middle Corridor from IMF PortWatch
